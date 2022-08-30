@@ -1,21 +1,19 @@
-import axios from 'axios';
-import { useState } from 'react';
-
-const Home = ({ movie }) => {
-  let [photo, setPhoto] = useState([]);
-  const getPhoto = axios
-    .get(`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`)
-    .then(({ data }) => {
-      setPhoto(data);
-      console.log(data);
-    })
-    .catch(error => {
-      console.log(error.message);
-    });
-  getPhoto();
+import { useEffect, useState } from 'react';
+import { getMovies } from '../../../services/movies.js';
+const Home = () => {
+  const [elements, setMovies] = useState([]);
+  useEffect(() => {
+    getMovies().then(setMovies);
+  }, []);
+  const el = elements.map(photo => (
+    <img
+      src={`https://image.tmdb.org/t/p/original/${photo.backdrop_path}`}
+      alt={photo.ganres.name}
+    />
+  ));
   return (
     <div>
-      <img src={photo} alt={movie.ganres[0].name} />
+      <li> {el}</li>
     </div>
   );
 };
