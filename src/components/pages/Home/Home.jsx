@@ -2,8 +2,16 @@ import { useEffect, useState } from 'react';
 import { getMovies } from '../../../services/movies.js';
 const Home = () => {
   const [elements, setMovies] = useState([]);
+  const [error, setError] = useState(null);
   useEffect(() => {
-    getMovies().then(setMovies);
+    getMovies()
+      .then(({ data }) => {
+        setMovies(data);
+      })
+      .catch(error => {
+        setError(error);
+        console.log(error.message);
+      });
   }, []);
   const el = elements.map(photo => (
     <img
@@ -13,7 +21,7 @@ const Home = () => {
   ));
   return (
     <div>
-      <li> {el}</li>
+      <li> {error || el}</li>
     </div>
   );
 };
