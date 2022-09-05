@@ -1,0 +1,25 @@
+div {
+  display: grid;
+  grid-template-columns: 375px 375px 375px;
+  margin-left: 15px;
+  grid-gap: 25px;
+}
+.box {
+  width: 1200px;
+  height: auto;
+}
+li {
+  width: auto;
+  text-align: center;
+  list-style-type: none;
+}
+img {
+  width: 375px;
+  height: 400px;
+}
+li .reference {
+  font-family: Oxygen;
+  font-size: large;
+  font-weight: 700;
+  text-align: center;
+}

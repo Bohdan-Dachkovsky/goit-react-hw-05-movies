@@ -7,6 +7,13 @@ export const getTrendingMovies = async () => {
   const { data } = await axios.get(
     `/trending/movie/day?api_key=${API_KEY}&language=US&page=1&include_adult=false`
   );
+
+  return data;
+};
+export const getMovies = async () => {
+  const { data } = await axios.get(
+    `/movie/{movie_id}?api_key=${API_KEY}&language=US&page=1&include_adult=false`
+  );
   console.log(data);
   return data;
 };

@@ -1,4 +1,10 @@
+import { Outlet } from 'react-router-dom';
+
 const MovieDetails = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Outlet />
+    </div>
+  );
 };
 export default MovieDetails;

@@ -6,7 +6,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.navigation {
+  font-family: 'Roboto';
+  margin-left: 100px;
+  font-weight: 900;
+  font-size: xx-large;
+  display: flex;
+  flex-direction: row;
+}
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

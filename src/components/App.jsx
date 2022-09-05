@@ -7,6 +7,7 @@ import styled from 'styled-components';
 const Container = styled.div`
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justifycontent: center;
   alignitems: center;
   fontsize: 40;
@@ -18,15 +19,19 @@ export const App = () => {
 
   return (
     <Container>
-      <nav>
+      <nav className="navigation">
         <Link to="/">Home</Link>
         <Link to="/movies">About</Link>
         <Link to="/movies/:movieId">Products</Link>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/movies/:movieId" element={<MovieDetails />} />
+        <Route path="/movies" element={<Movies />}>
+          <Route path=":movieId" element={<MovieDetails />}>
+            {/* <Route path="/cast" element={<Cast />} />
+            <Route path="/reviews" element={<Reviews />} /> */}
+          </Route>
+        </Route>
       </Routes>
     </Container>
   );
