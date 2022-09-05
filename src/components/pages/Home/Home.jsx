@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { getMovies } from '../../../services/movies.js';
+import { getTrendingMovies } from '../../../services/movies.js';
 const Home = () => {
   const [elements, setMovies] = useState([]);
   const [error, setError] = useState(null);
   useEffect(() => {
-    getMovies()
+    getTrendingMovies()
       .then(({ data }) => {
         setMovies(data);
       })
@@ -13,12 +13,14 @@ const Home = () => {
         console.log(error.message);
       });
   }, []);
-  const el = elements.map(photo => (
-    <img
-      src={`https://image.tmdb.org/t/p/original/${photo.backdrop_path}`}
-      alt={photo.ganres.name}
-    />
-  ));
+  const el = 0;
+  console.log(elements);
+  // const el = elements.map(photo => (
+  //   <video key={photo.name} width="480" controls>
+  //     {/* <source src={``}
+  //     type="video/mp4"> */}
+  //   </video>
+  // ));
   return (
     <div>
       <li> {error || el}</li>
