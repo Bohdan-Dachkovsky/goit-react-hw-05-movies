@@ -1,4 +1,5 @@
 import { Route, Routes, Link } from 'react-router-dom';
+// import { useState } from 'react';
 import Home from './pages/Home/Home.jsx';
 import Movies from './pages/Movies/Movies.jsx';
 import MovieDetails from './pages/MovieDetails/MovieDetails.jsx';
@@ -16,6 +17,10 @@ const Container = styled.div`
 export const App = () => {
   //   {/* <Route  path = '/movies/:movieId/cast ' element = {<MovieDetails/>} >
   // <Route  path = 'movies/movieId/rewievs' element = {<MovieDetails/>}></Route> */}
+  // const [text, setInfo] = useState([]);
+  // const aboutFilms = elements => {
+  //   setInfo(elements);
+  // };
 
   return (
     <Container>

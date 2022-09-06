@@ -14,6 +14,5 @@ export const getMovies = async () => {
   const { data } = await axios.get(
     `/movie/{movie_id}?api_key=${API_KEY}&language=US&page=1&include_adult=false`
   );
-  console.log(data);
   return data;
 };

@@ -1,12 +1,16 @@
 import { Outlet } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getMovies } from '../../../services/movies.js';
-const Movies = () => {
+const Movies = ({ about }) => {
   useEffect(() => {
-    getMovies();
+    getMovies().then(({ results }) => {
+      console.log(results);
+    });
   }, []);
+  console.log(about.overview);
   return (
     <div>
+      <p>{}</p>
       <Outlet />
     </div>
   );

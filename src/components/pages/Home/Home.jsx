@@ -21,7 +21,7 @@ const Home = () => {
     <li key={photo.message} width="480" controls>
       <img
         src={`https://image.tmdb.org/t/p/original${photo.poster_path}`}
-        claseName={grid.img}
+        className={grid.img}
         alt={photo.title}
       />
       <a href={photo.homepage} className={grid.reference}>
@@ -29,6 +29,6 @@ const Home = () => {
       </a>
     </li>
   ));
-  return <div claseName={grid.box}>{error || el}</div>;
+  return <div className={grid.box}>{error || el}</div>;
 };
 export default Home;
