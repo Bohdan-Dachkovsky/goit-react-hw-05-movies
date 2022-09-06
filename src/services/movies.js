@@ -12,7 +12,7 @@ export const getTrendingMovies = async () => {
 };
 export const getMovies = async () => {
   const { data } = await axios.get(
-    `/movie/genres/imdb_id?api_key=${API_KEY}&language=US&page=1&include_adult=false`
+    `search/movie?api_key=0eea8bea59a913a72c55562f66c1e72e&query=QUERY&page=1&include_adult=false`
   );
   return data;
 };

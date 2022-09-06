@@ -1,0 +1,36 @@
+p {
+  display: none;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.items {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+}
+
+.text:first-of-type {
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  font-size: medium;
+  font-variant: normal;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.text {
+  text-align: start;
+  display: block;
+  margin: 0px;
+  padding: 0px;
+}
+.boxD {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+}

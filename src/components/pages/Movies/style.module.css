@@ -1,0 +1,18 @@
+.coverBox {
+  display: flex;
+  flex-direction: column;
+}
+.input {
+  display: flex;
+}
+.filmBox {
+  display: flex;
+  flex-direction: column;
+}
+.vPlayer {
+  border: 1px seagreen;
+}
+label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}

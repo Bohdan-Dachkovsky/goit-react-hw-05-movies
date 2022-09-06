@@ -17,8 +17,11 @@ img {
   width: 375px;
   height: 400px;
 }
-li .reference {
+.reference {
   font-family: Oxygen;
+  list-style: none;
+  text-decoration: none;
+  text-transform: uppercase;
   font-size: large;
   font-weight: 700;
   text-align: center;

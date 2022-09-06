@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
 import { getTrendingMovies } from '../../../services/movies.js';
-import grid from './grid.css';
+import grid from './grid.module.css';
 const Home = () => {
   const [elements, setMovies] = useState([]);
 
   const [error, setError] = useState(null);
-
+  const addReference = `https://www.themoviedb.org/`;
   useEffect(() => {
     getTrendingMovies()
       .then(({ results }) => {
         setMovies(results);
+        console.log(results);
       })
       .catch(error => {
         setError(error);
@@ -24,7 +25,7 @@ const Home = () => {
         className={grid.img}
         alt={photo.title}
       />
-      <a href={photo.homepage} className={grid.reference}>
+      <a href={addReference} className={grid.reference}>
         {photo.title}
       </a>
     </li>
