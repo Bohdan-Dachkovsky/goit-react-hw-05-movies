@@ -1,13 +1,13 @@
 import { Outlet } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getMovies } from '../../../services/movies.js';
-const Movies = ({ about }) => {
+const Movies = () => {
   useEffect(() => {
-    getMovies().then(({ results }) => {
-      console.log(results);
+    getMovies().then(({ data }) => {
+      console.log(data);
     });
   }, []);
-  console.log(about.overview);
+
   return (
     <div>
       <p>{}</p>
