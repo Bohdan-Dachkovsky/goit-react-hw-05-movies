@@ -24,7 +24,7 @@ const Movies = () => {
     </video>
   ));
   return (
-    <div>
+    <div className={style.block}>
       <label className={style.coverEl} for="searchingFilms">
         Search Movies
         <input
