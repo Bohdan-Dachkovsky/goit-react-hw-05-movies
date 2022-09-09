@@ -30,7 +30,10 @@ p {
   padding: 0px;
 }
 .boxD {
-  display: block;
-  margin: 0px;
+  width: 375px;
+  margin-left: 0px;
+  margin-left: 300px;
+  display: unset;
+  flex-direction: column;
   padding: 0px;
 }

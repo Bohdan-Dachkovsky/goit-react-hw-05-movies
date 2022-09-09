@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovies } from '../../../services/movies.js';
 import style from './style.module.css';
@@ -11,29 +11,31 @@ const Movies = () => {
       console.log(results);
     });
   }, []);
+
+  //useEffect(() => {
+  //   getMoviesId().then(data => {
+  //     setFilms(data);
+  //     console.log(data);
+  //   });
+  // }, []);
   let filmSite = films.map(element => (
-    <video
-      className={style.vPlayer}
-      width="620"
-      height="360"
-      key={element.id}
-      controls
-      preload
-    >
-      <source src={element.poster_path} type="video/mp4" />
-    </video>
+    <Link key={element.id} to={`/movie/${element.id}`}>
+      <li>{element.title}</li>
+    </Link>
   ));
   return (
-    <div className={style.block}>
-      <label className={style.coverEl} for="searchingFilms">
-        Search Movies
-        <input
-          className={style.input}
-          type="search"
-          id="searchingFilms"
-        ></input>
-      </label>
-      <div className={style.filmBox}>{filmSite}</div>
+    <div>
+      <div className={style.block}>
+        <label className={style.coverEl} htmlFor="searchingFilms">
+          Search Movies
+          <input
+            className={style.input}
+            type="search"
+            id="searchingFilms"
+          ></input>
+        </label>
+        <div className={style.filmBox}>{filmSite}</div>
+      </div>
       <Outlet />
     </div>
   );

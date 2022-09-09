@@ -16,3 +16,9 @@ export const getMovies = async () => {
   );
   return data;
 };
+export const getMoviesId = async () => {
+  const { data } = await axios.get(
+    `search/movie?api_key=0eea8bea59a913a72c55562f66c1e72e&query=QUERY&page=1&include_adult=false`
+  );
+  return data;
+};
