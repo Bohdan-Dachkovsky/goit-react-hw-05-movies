@@ -20,7 +20,7 @@ const Home = () => {
   }, []);
 
   const renderFilms = movies.map(({ id, title }) => (
-    <Link key={id} to={`/movies/${id}`}>
+    <Link key={id} to={`movies/${id}`}>
       {title}
     </Link>
   ));

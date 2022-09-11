@@ -1,12 +1,14 @@
-import { Outlet } from 'react-router-dom';
+import { useParams, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getTrendingMovies } from '../../../services/movies.js';
 import detailsStyle from './details.module.css';
 const MovieDetails = () => {
+  let { movieId } = useParams();
+  // console.log(movieId);
   const [text, addText] = useState([]);
   const [error, setError] = useState(null);
   useEffect(() => {
-    getTrendingMovies()
+    getTrendingMovies(movieId)
       .then(({ results }) => {
         addText(results);
       })
@@ -14,7 +16,7 @@ const MovieDetails = () => {
         setError(error);
         console.log(error.message);
       });
-  }, []);
+  }, [movieId]);
   let paragraph = text.map((texts, index) => (
     <li className={detailsStyle.items} key={index}>
       <p className={detailsStyle.text}>{texts.title}</p>
