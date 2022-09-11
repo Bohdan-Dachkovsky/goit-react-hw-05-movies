@@ -6,12 +6,12 @@ const MovieDetails = () => {
   let { movieId } = useParams();
   // console.log(movieId);
   const [movie, addMovie] = useState([]);
-  const [error, setError] = useState(null);
+
   useEffect(() => {
     getMovie(movieId).then(({ results }) => {
       addMovie(results);
       console.log(results).catch(error => {
-        setError(error.message);
+        return Promise.reject(error);
       });
     });
   }, [movieId]);
@@ -31,7 +31,7 @@ const MovieDetails = () => {
   ));
   return (
     <div className={detailsStyle.boxD}>
-      {error || movies}
+      {movies}
       <Outlet />
     </div>
   );
