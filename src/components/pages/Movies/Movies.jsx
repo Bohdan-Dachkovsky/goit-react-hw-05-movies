@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovies } from '../../../services/movies.js';
 import style from './style.module.css';
@@ -36,7 +36,6 @@ const Movies = () => {
         </label>
         <div className={style.filmBox}>{filmSite}</div>
       </div>
-      <Outlet />
     </div>
   );
 };
