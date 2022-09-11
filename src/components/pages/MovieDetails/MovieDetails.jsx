@@ -1,19 +1,21 @@
 import { useParams, Outlet } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getMovie } from '../../../services/movies.js';
 import detailsStyle from './details.module.css';
 const MovieDetails = () => {
   let { movieId } = useParams();
-  // console.log(movieId);
+  console.log(movieId);
   const [movie, addMovie] = useState([]);
 
   useEffect(() => {
-    getMovie(movieId).then(({ results }) => {
-      addMovie(results);
-      console.log(results).catch(error => {
+    getMovie(movieId)
+      .then(data => {
+        addMovie(data);
+        console.log(data);
+      })
+      .catch(error => {
         return Promise.reject(error);
       });
-    });
   }, [movieId]);
   let movies = movie.map((element, index) => (
     <ol key={element.original_title}>
