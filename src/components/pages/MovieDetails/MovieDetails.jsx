@@ -17,20 +17,21 @@ const MovieDetails = () => {
         return Promise.reject(error);
       });
   }, [movieId]);
-  let movies = movie.map((element, index) => (
-    <ol key={element.original_title}>
-      <li className={detailsStyle.items} key={index}>
+  let movies = (
+    <ol key={movie.original_title}>
+      <li className={detailsStyle.items} key={movie.original_title}>
         <img
-          src={`https://image.tmdb.org/t/p/w500${element.poster_path}`}
-          alt={element.title}
-          srcset={`https://image.tmdb.org/t/p/w500${element.poster_path} 2x`}
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt={movie.title}
+          srcset={`https://image.tmdb.org/t/p/w500${movie.poster_path} 2x`}
         />
         <p className={detailsStyle.text}>
-          &nbsp;&nbsp;&nbsp;&nbsp;{element.overview}
+          &nbsp;&nbsp;&nbsp;&nbsp;{movie.overview}
         </p>
       </li>
     </ol>
-  ));
+  );
+
   return (
     <div className={detailsStyle.boxD}>
       {movies}
