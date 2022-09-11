@@ -30,6 +30,10 @@ const linkStyle = {
 };
 
 export const App = () => {
+  let ProfilePage = profileId => {
+    return profileId;
+  };
+
   return (
     <Container>
       <Navigation>
@@ -46,7 +50,10 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/:movieId" element={<MovieDetails />} />
+          <Route
+            path="/movies/:movieId"
+            element={<MovieDetails Profile={ProfilePage} />}
+          />
           <Route
             path="/cast"
             element={
