@@ -10,9 +10,9 @@ export const getTrendingMovies = async () => {
 
   return data;
 };
-export const getMovies = async () => {
+export const getMovie = async movieId => {
   const { data } = await axios.get(
-    `search/movie?api_key=0eea8bea59a913a72c55562f66c1e72e&query=QUERY&page=1&include_adult=false`
+    `/movie/${movieId}?api_key=${API_KEY}&language=US&page=1&include_adult=false`
   );
   return data;
 };

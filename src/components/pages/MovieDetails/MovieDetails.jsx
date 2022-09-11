@@ -1,33 +1,37 @@
 import { useParams, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getTrendingMovies } from '../../../services/movies.js';
+import { getMovie } from '../../../services/movies.js';
 import detailsStyle from './details.module.css';
 const MovieDetails = () => {
   let { movieId } = useParams();
   // console.log(movieId);
-  const [text, addText] = useState([]);
+  const [movie, addMovie] = useState([]);
   const [error, setError] = useState(null);
   useEffect(() => {
-    getTrendingMovies(movieId)
-      .then(({ results }) => {
-        addText(results);
-      })
-      .catch(error => {
-        setError(error);
-        console.log(error.message);
+    getMovie(movieId).then(({ results }) => {
+      addMovie(results);
+      console.log(results).catch(error => {
+        setError(error.message);
       });
+    });
   }, [movieId]);
-  let paragraph = text.map((texts, index) => (
-    <li className={detailsStyle.items} key={index}>
-      <p className={detailsStyle.text}>{texts.title}</p>
-      <p className={detailsStyle.text}>
-        &nbsp;&nbsp;&nbsp;&nbsp;{texts.overview}
-      </p>
-    </li>
+  let movies = movie.map((element, index) => (
+    <ol key={element.original_title}>
+      <li className={detailsStyle.items} key={index}>
+        <img
+          src={`https://image.tmdb.org/t/p/w500${element.poster_path}`}
+          alt={element.title}
+          srcset={`https://image.tmdb.org/t/p/w500${element.poster_path} 2x`}
+        />
+        <p className={detailsStyle.text}>
+          &nbsp;&nbsp;&nbsp;&nbsp;{element.overview}
+        </p>
+      </li>
+    </ol>
   ));
   return (
     <div className={detailsStyle.boxD}>
-      {error || paragraph}
+      {error || movies}
       <Outlet />
     </div>
   );

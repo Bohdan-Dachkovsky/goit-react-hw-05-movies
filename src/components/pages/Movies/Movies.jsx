@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getMovies } from '../../../services/movies.js';
+import { getMovie } from '../../../services/movies.js';
 import style from './style.module.css';
 
 const Movies = () => {
   const [films, setFilms] = useState([]);
   useEffect(() => {
-    getMovies().then(({ results }) => {
+    getMovie().then(({ results }) => {
       setFilms(results);
       console.log(results);
     });
