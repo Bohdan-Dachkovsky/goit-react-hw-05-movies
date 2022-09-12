@@ -22,9 +22,9 @@ const MovieDetails = Profile => {
     <ol key={movie.original_title}>
       <li className={detailsStyle.items} key={movie.original_title}>
         <img
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
           alt={movie.title}
-          srcset={`https://image.tmdb.org/t/p/w500${movie.poster_path} 2x`}
+          srcSet={`https://image.tmdb.org/t/p/w500${movie.poster_path} 2x`}
         />
         <p className={detailsStyle.text}>
           &nbsp;&nbsp;&nbsp;&nbsp;{movie.overview}

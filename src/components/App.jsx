@@ -1,6 +1,7 @@
 import { Route, Routes, Link } from 'react-router-dom';
 import { React, Suspense } from 'react';
-
+import Cast from './pages/Cast/Cast.jsx';
+import Reviews from './pages/Reviews/Reviews.jsx';
 import Home from './pages/Home/Home.jsx';
 import Movies from './pages/Movies/Movies.jsx';
 import MovieDetails from './pages/MovieDetails/MovieDetails.jsx';
@@ -53,23 +54,10 @@ export const App = () => {
           <Route
             path="/movies/:movieId"
             element={<MovieDetails Profile={ProfilePage} />}
-          />
-          <Route
-            path="/cast"
-            element={
-              <div>
-                <cast />
-              </div>
-            }
-          />
-          <Route
-            path="/reviews"
-            element={
-              <div>
-                <reviews />
-              </div>
-            }
-          />
+          >
+            <Route path="/movies/:movieId/cast" element={<Cast />} />
+            <Route path="/movies/:movieId/reviews" element={<Reviews />} />
+          </Route>
         </Routes>
       </Suspense>
     </Container>
