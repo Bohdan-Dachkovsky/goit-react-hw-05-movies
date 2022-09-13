@@ -1,8 +1,10 @@
 import { getMovie } from '../../../services/movies.js';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 const Reviews = () => {
   const [reviews, getReviews] = useState([]);
+  const { id } = useParams();
+  console.log(id);
   useEffect(() => {
     getMovie().then(data => {
       getReviews(data);

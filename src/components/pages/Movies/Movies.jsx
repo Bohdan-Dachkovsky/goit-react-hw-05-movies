@@ -8,7 +8,7 @@ const Movies = () => {
   useEffect(() => {
     getMovie().then(({ results }) => {
       setFilms(results);
-      console.log(results);
+      // console.log(results);
     });
   }, []);
 

@@ -1,12 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getMovie } from '../../../services/movies.js';
 import { useState, useEffect } from 'react';
 const Cast = () => {
+  const { id } = useParams();
+  console.log(id);
   const [cast, setCast] = useState([]);
   useEffect(() => {
     getMovie().then(data => {
       setCast(data);
-      console.log(data);
+      // console.log(data);
     });
   });
 
