@@ -8,16 +8,9 @@ const Movies = () => {
   useEffect(() => {
     getMovie().then(({ results }) => {
       setFilms(results);
-      // console.log(results);
     });
   }, []);
 
-  //useEffect(() => {
-  //   getMoviesId().then(data => {
-  //     setFilms(data);
-  //     console.log(data);
-  //   });
-  // }, []);
   let filmSite = films.map(element => (
     <Link key={element.id} to={`/movie/${element.id}`}>
       <li>{element.title}</li>

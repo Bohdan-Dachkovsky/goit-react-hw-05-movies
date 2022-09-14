@@ -4,7 +4,7 @@ import { getMovie } from '../../../services/movies.js';
 import detailsStyle from './details.module.css';
 const MovieDetails = Profile => {
   let { movieId } = useParams();
-  // console.log(movieId);
+
   const [movie, addMovie] = useState([]);
 
   // Profile(movieId);
@@ -12,7 +12,6 @@ const MovieDetails = Profile => {
     getMovie(movieId)
       .then(data => {
         addMovie(data);
-        console.log(data);
       })
       .catch(error => {
         return Promise.reject(error);

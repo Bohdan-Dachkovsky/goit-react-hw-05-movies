@@ -15,7 +15,6 @@ const Home = () => {
     getTrendingMovies()
       .then(({ results }) => {
         setMovies(results);
-        console.log(results);
       })
       .catch(error => {
         setError(error);
