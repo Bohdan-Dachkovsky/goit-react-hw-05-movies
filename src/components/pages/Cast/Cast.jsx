@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { getMovie } from '../../../services/movies.js';
 import { useState, useEffect } from 'react';
+import {getActorsId} from '../../../services/movies.jsx';
 const Cast = () => {
   const { id } = useParams();
   console.log(id);

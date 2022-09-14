@@ -16,6 +16,12 @@ export const getMovie = async movieId => {
   );
   return data;
 };
+export const getActorsId = async movieId => {
+  const {data} = await axios.get(
+    `/movie/${movieId}?api_key=${API_KEY}&language=US&page=1&include_adult=false`
+    );
+  return data;
+}
 export const getMoviesId = async () => {
   const { data } = await axios.get(
     `search/movie?api_key=0eea8bea59a913a72c55562f66c1e72e&query=QUERY&page=1&include_adult=false`
