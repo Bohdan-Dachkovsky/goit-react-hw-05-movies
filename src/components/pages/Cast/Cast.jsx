@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getActorsId } from '../../../services/movies.js';
 const Cast = () => {
@@ -11,11 +11,15 @@ const Cast = () => {
       console.log(data);
     });
   });
-
+  // const renderFilms = movies.map(({ id, title }) => (
+  //   <Link key={id} to={`movies/${id}`}>
+  //     {title}
+  //   </Link>
+  // ));
   let actors = cast.map(({ id }) => (
-    <li key={id} to={`movies/${id}/cast`}>
+    <Link key={id} to={`movies/${id}/cast`}>
       Cast
-    </li>
+    </Link>
   ));
   return <div> {actors}</div>;
 };
