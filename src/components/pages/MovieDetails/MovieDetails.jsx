@@ -2,7 +2,7 @@ import { useParams, Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovie } from '../../../services/movies.js';
 import detailsStyle from './details.module.css';
-const MovieDetails = Profile => {
+const MovieDetails = () => {
   let { movieId } = useParams();
 
   const [movie, addMovie] = useState([]);
