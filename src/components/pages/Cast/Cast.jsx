@@ -11,16 +11,12 @@ const Cast = () => {
       console.log(data);
     });
   }, [movieId]);
-  // const renderFilms = movies.map(({ id, title }) => (
-  //   <Link key={id} to={`movies/${id}`}>
-  //     {title}
-  //   </Link>
-  // ));
+
   let actors = cast.map(el => (
     <li>
       <span>{el.title}</span>
     </li>
   ));
-  return <div> {actors}</div>;
+  return <div>{actors}</div>;
 };
 export default Cast;

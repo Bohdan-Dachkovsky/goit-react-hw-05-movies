@@ -31,7 +31,7 @@ const MovieDetails = () => {
       </li>
     </ol>
   );
-  let actorsObj = <Link to={`movie/${movieId}/credits`}>Cast</Link>;
+  let actorsObj = <Link to={{ movieId }}>Cast</Link>;
   return (
     <div className={detailsStyle.boxD}>
       {movies}
