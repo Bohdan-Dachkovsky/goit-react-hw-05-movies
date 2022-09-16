@@ -1,4 +1,4 @@
-import { useParams, Outlet } from 'react-router-dom';
+import { useParams, Outlet, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovie } from '../../../services/movies.js';
 import detailsStyle from './details.module.css';
@@ -31,10 +31,12 @@ const MovieDetails = () => {
       </li>
     </ol>
   );
-
+  let actorsObj = <Link to={`movie/${movieId}/credits`}>Cast</Link>;
   return (
     <div className={detailsStyle.boxD}>
       {movies}
+      <>{actorsObj}</>
+
       <Outlet />
     </div>
   );
