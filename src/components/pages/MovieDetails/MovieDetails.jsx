@@ -31,11 +31,15 @@ const MovieDetails = () => {
       </li>
     </ol>
   );
-  let actorsObj = <Link to={{ movieId }}>Cast</Link>;
+  let actorsObj = (
+    <Link key={movieId} to="cast">
+      Cast
+    </Link>
+  );
   return (
     <div className={detailsStyle.boxD}>
       {movies}
-      <>{actorsObj}</>
+      <div>{actorsObj}</div>
 
       <Outlet />
     </div>
