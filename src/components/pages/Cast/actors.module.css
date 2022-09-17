@@ -1,0 +1,11 @@
+.image {
+  display: flex;
+  flex-direction: column;
+  width: 575px;
+  height: 500;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
