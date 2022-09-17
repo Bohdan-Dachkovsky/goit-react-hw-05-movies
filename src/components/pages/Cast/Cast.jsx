@@ -13,11 +13,11 @@ const Cast = () => {
     });
   }, [movieId]);
 
-  let actors = cast.map(({ id, profile_path, name, character }) => {
+  let actors = cast.map(({ id, poster_path, name, character }) => {
     return (
       <li key={id}>
         <img
-          src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
+          src={`https://imgs.smoothradio.com/images/146480?width=1980&crop=16_9&signature=3wCwcBcjqiIGJ0L5DuHyqX1uh_E=`}
           alt={name}
         />
         <p>
