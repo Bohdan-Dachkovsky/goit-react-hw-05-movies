@@ -36,11 +36,16 @@ const MovieDetails = () => {
       Cast
     </Link>
   );
+  let reviewsObj = (
+    <Link key={movieId} to="reviews">
+      Reviews
+    </Link>
+  );
   return (
     <div className={detailsStyle.boxD}>
       {movies}
       <div>{actorsObj}</div>
-
+      <div>{reviewsObj}</div>
       <Outlet />
     </div>
   );

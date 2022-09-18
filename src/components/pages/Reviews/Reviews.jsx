@@ -1,22 +1,28 @@
-import { getMovie } from '../../../services/movies.js';
-import { Link, useParams } from 'react-router-dom';
+import { getReviews } from '../../../services/movies.js';
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 const Reviews = () => {
-  const [reviews, getReviews] = useState([]);
+  const [elementOfReviews, addReviews] = useState([]);
   const { id } = useParams();
   console.log(id);
   useEffect(() => {
-    getMovie().then(data => {
-      getReviews(data);
+    getReviews().then(data => {
+      addReviews(data);
       console.log(data);
     });
-  });
+  }, [id]);
 
-  let text = reviews.map(({ id }) => (
-    <Link key={id} to={`movies/${id}/cast`}>
-      Reviews
-    </Link>
-  ));
+  let text = (
+    <ul>
+      <li>
+        {' '}
+        <p key={elementOfReviews.title}>{elementOfReviews.reviews}</p>
+      </li>
+      <li>
+        <p>Reviews couldn't found</p>
+      </li>
+    </ul>
+  );
   return <div>{text}</div>;
 };
 export default Reviews;

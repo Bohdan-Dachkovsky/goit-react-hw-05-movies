@@ -6,27 +6,31 @@ import style from './style.module.css';
 const Movies = () => {
   const [films, setFilms] = useState([]);
   const [search, setMovie] = useState({ movie: '' });
+
   useEffect(() => {
-    getMoviesId().then(({ results }) => {
+    getMoviesId(search).then(({ results }) => {
       setFilms(results);
       console.log(results);
     });
-  }, []);
+  }, [search]);
   const handleChange = event => {
     setMovie({ movie: event.currentTarget.value.toLowerCase() });
   };
-  let filmSite = films.map(element => (
-    <Link key={element.id} to={`/movie/${element.id}`}>
-      <li>{element.title}</li>
+
+  let filmSite = films.map(({ id, title }) => (
+    <Link key={id} to={`/movie/${id}`}>
+      <li>{title}</li>
     </Link>
   ));
-  const getMovies = () => {
-    return filmSite.filter(film =>
-      film.name.toLowerCase().includes(search.toLowerCase())
-    );
-  };
+
+  // const getMovies = () => {
+  //   return filmSite.filter(film =>
+  //     film.name.toLowerCase().includes(search.toLowerCase())
+  //   );
+  // };
   return (
     <div>
+      {/* <ul>{object}</ul>  */}
       <div className={style.block}>
         <label className={style.coverEl} htmlFor="searchingFilms">
           Search Movies
@@ -37,11 +41,10 @@ const Movies = () => {
             placeholder="Type movie name"
             onChange={handleChange}
             name="movie"
-            value={search}
             required
           ></input>
         </label>
-        <div className={style.filmBox}>{getMovies}</div>
+        <div className={style.filmBox}>{filmSite}</div>
       </div>
     </div>
   );

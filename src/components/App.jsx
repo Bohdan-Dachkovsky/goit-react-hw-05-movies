@@ -6,7 +6,6 @@ import Home from './pages/Home/Home.jsx';
 import Movies from './pages/Movies/Movies.jsx';
 import MovieDetails from './pages/MovieDetails/MovieDetails.jsx';
 import styled from 'styled-components';
-
 const Container = styled.div`
   height: 100vh;
   display: flex;
