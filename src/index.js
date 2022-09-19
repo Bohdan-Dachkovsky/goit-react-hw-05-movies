@@ -4,7 +4,7 @@ import { App } from 'components/App';
 import './index.css';
 import { createRoot } from 'react-dom/client';
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/goit-react-hw-05-movies/">
     <React.StrictMode>
       <App />
     </React.StrictMode>
