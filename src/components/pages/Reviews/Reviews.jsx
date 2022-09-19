@@ -3,19 +3,19 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 const Reviews = () => {
   const [elementOfReviews, addReviews] = useState([]);
-  const { id } = useParams();
-  console.log(id);
+  const { movieId } = useParams();
+  console.log(movieId);
   useEffect(() => {
-    getReviews().then(data => {
-      addReviews(data);
-      console.log(data);
+    getReviews(movieId).then(({ results }) => {
+      addReviews(results);
+      console.log(results);
     });
-  }, [id]);
+  }, [movieId]);
 
   let text = (
     <ul>
       <li>
-        <p key={elementOfReviews.title}>{elementOfReviews.reviews}</p>
+        <p key={elementOfReviews.content}>{elementOfReviews.content}</p>
       </li>
       <li>
         <p>Reviews couldn't found</p>

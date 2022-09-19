@@ -6,23 +6,26 @@ const Cast = () => {
   const [cast, setCast] = useState([]);
   console.log(cast);
   const { movieId } = useParams();
-  console.log(movieId);
+  // console.log(movieId);
   useEffect(() => {
-    getActorsId(movieId).then(data => {
-      setCast(data);
-      console.log(data);
+    getActorsId(movieId).then(({ cast }) => {
+      setCast(cast);
+      console.log(cast);
     });
   }, [movieId]);
 
   let actors = (
-    <li key={movieId}>
-      {/* https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBGhjJD-kcvfrbw4yJTGmbn2INV7_sHihPQw&usqp=CAU */}
+    <li key={cast.id}>
       <img
-        src={`https://image.tmdb.org/t/p/w500/${cast.profile_path}`}
+        src={
+          cast.profile_path
+            ? `https://image.tmdb.org/t/p/w500/${cast.profile_path}`
+            : `https://via.placeholder.com/150x225/808080/ff4e00/?text=GoIT.React`
+        }
         alt={cast.original_name}
         className={pageStyle.image}
       />
-      <p className={pageStyle.text}>Name: {cast.name}</p>
+
       <p className={pageStyle.text}>Character couldn't found</p>
     </li>
   );
