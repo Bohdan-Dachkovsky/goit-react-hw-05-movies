@@ -15,7 +15,6 @@ const Reviews = () => {
   let text = (
     <ul>
       <li>
-        {' '}
         <p key={elementOfReviews.title}>{elementOfReviews.reviews}</p>
       </li>
       <li>
