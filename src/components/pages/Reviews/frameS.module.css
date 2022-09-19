@@ -1,0 +1,14 @@
+.content {
+  width: 500px;
+  height: 500px;
+  display: block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: normal;
+  text-align: start;
+  font-size: medium;
+}
+.reviews {
+  display: flex;
+  flex-direction: column;
+  margin: 100px 60px;
+}
