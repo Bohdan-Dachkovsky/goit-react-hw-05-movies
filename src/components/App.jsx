@@ -5,6 +5,7 @@ import Reviews from './pages/Reviews/Reviews.jsx';
 import Home from './pages/Home/Home.jsx';
 import Movies from './pages/Movies/Movies.jsx';
 import MovieDetails from './pages/MovieDetails/MovieDetails.jsx';
+import LoaderPage from './pages/LoaderPage/LoaderPage.jsx';
 import styled from 'styled-components';
 const Container = styled.div`
   height: 100vh;
@@ -28,7 +29,10 @@ const linkStyle = {
   textDecoration: 'none',
   color: 'blue',
 };
-
+const text = {
+  message: 'This page is not created',
+  downloadedForm: alert('Please click to reload page'),
+};
 export const App = () => {
   let ProfilePage = profileId => {
     return profileId;
@@ -56,6 +60,7 @@ export const App = () => {
           >
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
+            <Route path="*" element={<LoaderPage loading={text} />} />
           </Route>
         </Routes>
       </Suspense>

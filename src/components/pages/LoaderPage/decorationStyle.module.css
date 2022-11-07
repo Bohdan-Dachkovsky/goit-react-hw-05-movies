@@ -1,0 +1,10 @@
+.decoration {
+  font-style: normal;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: underline overline;
+  text-align: center;
+  color: black;
+}
