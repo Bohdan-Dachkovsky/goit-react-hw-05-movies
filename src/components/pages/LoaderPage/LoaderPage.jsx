@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import textCss from './decorationStyle.module.css';
-const LoaderPage = ({ message, downloadedForm }) => {
+const LoaderPage = loading => {
   return (
     <div>
-      <span className={textCss.decoration}>{message}</span>
+      <span className={textCss.decoration}>{loading.message}</span>
       <button
         onClick={() => {
-          alert({ downloadedForm });
+          alert(loading.downloadedForm);
         }}
       >
         Reload
@@ -16,6 +16,6 @@ const LoaderPage = ({ message, downloadedForm }) => {
 };
 export default LoaderPage;
 LoaderPage.propTypes = {
-  message: PropTypes.string,
+  message: PropTypes.string.isRequired,
   downloadedForm: PropTypes.string.isRequired,
 };
