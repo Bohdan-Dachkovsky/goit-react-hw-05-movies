@@ -6,7 +6,7 @@ const LoaderPage = ({ message, downloadedForm }) => {
       <span className={textCss.decoration}>{message}</span>
       <button
         onClick={() => {
-          downloadedForm();
+          alert({ downloadedForm });
         }}
       >
         Reload
@@ -16,6 +16,6 @@ const LoaderPage = ({ message, downloadedForm }) => {
 };
 export default LoaderPage;
 LoaderPage.propTypes = {
-  message: PropTypes.string.isRequired,
-  downloadedForm: PropTypes.func.isRequired,
+  message: PropTypes.string,
+  downloadedForm: PropTypes.string.isRequired,
 };

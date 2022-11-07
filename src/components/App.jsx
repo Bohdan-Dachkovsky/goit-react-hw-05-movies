@@ -31,7 +31,7 @@ const linkStyle = {
 };
 const text = {
   message: 'This page is not created',
-  downloadedForm: alert('Please click to reload page'),
+  downloadedForm: 'Please click to reload page',
 };
 export const App = () => {
   let ProfilePage = profileId => {
