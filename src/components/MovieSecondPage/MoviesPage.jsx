@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getMovie } from '../../../services/movies.js';
+import { getActorsId } from '../../../services/movies.js';
 import detailsStyle from './details.module.css';
 const MoviesPage = () => {
   let { movieId } = useParams();
@@ -9,7 +9,7 @@ const MoviesPage = () => {
 
   // Profile(movieId);
   useEffect(() => {
-    getMovie(movieId)
+    getActorsId(movieId)
       .then(data => {
         addMovie(data);
         console.log(data);
