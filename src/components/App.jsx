@@ -5,6 +5,7 @@ import Reviews from './pages/Reviews/Reviews.jsx';
 import Home from './pages/Home/Home.jsx';
 import Movies from './pages/Movies/Movies.jsx';
 import MovieDetails from './pages/MovieDetails/MovieDetails.jsx';
+import MoviesPage from './pages/MovieSecondPage/MoviesPage.jsx';
 import LoaderPage from './pages/LoaderPage/LoaderPage.jsx';
 import styled from 'styled-components';
 const Container = styled.div`
@@ -58,6 +59,7 @@ export const App = () => {
             path="/movies/:movieId"
             element={<MovieDetails Profile={ProfilePage} />}
           >
+            <Route path="/movies/:movieId" element={<MoviesPage />}></Route>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
             <Route path="*" element={<LoaderPage loading={text} />} />
