@@ -18,7 +18,13 @@ export const getMovie = async movieId => {
 };
 export const getFilm = async movieId => {
   const { data } = await axios.get(
-    `/movie/${movieId}?api_key=${API_KEY}&language=US&page=1&include_adult=false`
+    `search/movie/${movieId}?api_key=${API_KEY}&language=US&page=1&include_adult=false`
+  );
+  return data;
+};
+export const getMoviesId = async search => {
+  const { data } = await axios.get(
+    `search/movie?api_key=${API_KEY}&query=${search.movie}&page=1&include_adult=false`
   );
   return data;
 };
@@ -40,12 +46,7 @@ export const getActorsId = async movieId => {
   );
   return data;
 };
-export const getMoviesId = async search => {
-  const { data } = await axios.get(
-    `search/movie?api_key=0eea8bea59a913a72c55562f66c1e72e&query=${search.movie}&page=1&include_adult=false`
-  );
-  return data;
-};
+
 export const getSearchMovie = async id => {
   const { data } = await axios.get(
     `search/movie/${id}?api_key=0eea8bea59a913a72c55562f66c1e72e&page=1&include_adult=false`
