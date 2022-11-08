@@ -59,7 +59,7 @@ export const App = () => {
             path="/movies/:movieId"
             element={<MovieDetails Profile={ProfilePage} />}
           >
-            <Route path="/movies/:movieId" element={<MoviesPage />}></Route>
+            <Route path="/movies/:movieId" element={<MoviesPage />} />
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
             <Route path="*" element={<LoaderPage loading={text} />} />
