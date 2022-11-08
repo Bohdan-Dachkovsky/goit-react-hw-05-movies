@@ -16,6 +16,6 @@ const LoaderPage = loading => {
 };
 export default LoaderPage;
 LoaderPage.propTypes = {
-  message: PropTypes.string.isRequired,
-  downloadedForm: PropTypes.string.isRequired,
+  message: PropTypes.string,
+  downloadedForm: PropTypes.string,
 };

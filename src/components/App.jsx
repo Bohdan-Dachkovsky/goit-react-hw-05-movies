@@ -5,7 +5,7 @@ import Reviews from './pages/Reviews/Reviews.jsx';
 import Home from './pages/Home/Home.jsx';
 import Movies from './pages/Movies/Movies.jsx';
 import MovieDetails from './pages/MovieDetails/MovieDetails.jsx';
-import MoviesPage from './pages/MovieSecondPage/MoviesPage.jsx';
+import MoviesPage from './pages/MoviesPage/MoviesPage.jsx';
 import LoaderPage from './pages/LoaderPage/LoaderPage.jsx';
 import styled from 'styled-components';
 const Container = styled.div`

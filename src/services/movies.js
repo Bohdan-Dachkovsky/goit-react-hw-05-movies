@@ -16,15 +16,15 @@ export const getMovie = async movieId => {
   );
   return data;
 };
-export const getFilm = async id => {
+export const getFilm = async movieId => {
   const { data } = await axios.get(
-    `/movie/${id}?api_key=${API_KEY}&language=US&page=1&include_adult=false`
+    `/movie/${movieId}?api_key=${API_KEY}&language=US&page=1&include_adult=false`
   );
   return data;
 };
-export const getActorsId = async movieId => {
+export const addMovie = async movieId => {
   const { data } = await axios.get(
-    `/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
+    `/movie/${movieId}?api_key=${API_KEY}&language=US&page=1&include_adult=false`
   );
   return data;
 };
