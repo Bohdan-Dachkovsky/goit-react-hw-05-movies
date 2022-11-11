@@ -13,9 +13,11 @@ const Movies = () => {
       console.log(results);
     });
   }, [search]);
-  const handleChange = event => {
+  const handleSubmit = event => {
+    event.preventDefault();
     setMovie({ movie: event.currentTarget.value.toLowerCase() });
   };
+ 
 
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movie/${id}`}>
@@ -32,6 +34,7 @@ const Movies = () => {
     <div>
       {/* <ul>{object}</ul>  */}
       <div className={style.block}>
+        <form onSubmit={handleSubmit}></form>
         <label className={style.coverEl} htmlFor="searchingFilms">
           Search Movies
           <input
@@ -39,11 +42,12 @@ const Movies = () => {
             type="search"
             id="searchingFilms"
             placeholder="Type movie name"
-            onChange={handleChange}
+            
             name="movie"
             required
           ></input>
         </label>
+        <button type="submit">Search</button>
         <div className={style.filmBox}>{filmSite}</div>
       </div>
     </div>
