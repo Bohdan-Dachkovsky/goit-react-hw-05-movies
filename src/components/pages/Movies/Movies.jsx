@@ -15,9 +15,8 @@ const Movies = () => {
   }, [search]);
   const handleSubmit = event => {
     event.preventDefault();
-    setMovie({ movie: event.currentTarget.value.toLowerCase() });
+    setMovie({ movie: event.currentTarget.elements.movie.toLowerCase() });
   };
- 
 
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movie/${id}`}>
@@ -42,7 +41,6 @@ const Movies = () => {
             type="search"
             id="searchingFilms"
             placeholder="Type movie name"
-            
             name="movie"
             required
           ></input>
