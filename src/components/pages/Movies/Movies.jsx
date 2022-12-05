@@ -6,18 +6,28 @@ import style from './style.module.css';
 const Movies = () => {
   const [films, setFilms] = useState([]);
   const [search, setMovie] = useState({ movie: '' });
-
+  // const [name, onMoviesName] = useState('');
   useEffect(() => {
     getMoviesId(search).then(({ results }) => {
       setFilms(results);
-      console.log(results);
     });
   }, [search]);
-  const handleSubmit = event => {
-    event.preventDefault();
-    setMovie({ movie: event.currentTarget.elements.movie.toLowerCase() });
+
+  const handleChange = event => {
+    setMovie({
+      movie: event.currentTarget.value.toLowerCase(),
+    });
   };
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    if (search.movie === '') {
+      alert(`The movie isn't ${search.movie} loaded`);
+      return;
+    }
+    // onMoviesName(search.movie);
+    setMovie('');
+  };
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movie/${id}`}>
       <li>{title}</li>
@@ -35,17 +45,20 @@ const Movies = () => {
       <div className={style.block}>
         <form onSubmit={handleSubmit}></form>
         <label className={style.coverEl} htmlFor="searchingFilms">
-          Search Movies
           <input
             className={style.input}
             type="search"
             id="searchingFilms"
+            onChange={handleChange}
             placeholder="Type movie name"
             name="movie"
             required
           ></input>
+          {/* <button className={style.button} type="submit">
+            Search
+          </button> */}
         </label>
-        <button type="submit">Search</button>
+
         <div className={style.filmBox}>{filmSite}</div>
       </div>
     </div>

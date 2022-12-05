@@ -12,7 +12,6 @@ const MovieDetails = () => {
     getMovie(movieId)
       .then(data => {
         addMovie(data);
-        console.log(data);
       })
       .catch(error => {
         return Promise.reject(error);
