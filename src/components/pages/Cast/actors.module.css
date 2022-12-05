@@ -8,4 +8,7 @@
   display: flex;
   flex-direction: column;
   text-align: start;
+  list-style-type: disc;
+  list-style: disc;
+  margin-left: 100px;
 }

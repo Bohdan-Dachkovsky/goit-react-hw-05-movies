@@ -5,11 +5,10 @@ import style from './frameS.module.css';
 const Reviews = () => {
   const [elementOfReviews, addReviews] = useState([]);
   const { movieId } = useParams();
-  console.log(movieId);
+
   useEffect(() => {
     getReviews(movieId).then(({ results }) => {
       addReviews(results);
-      console.log(results);
     });
   }, [movieId]);
 
@@ -23,6 +22,14 @@ const Reviews = () => {
       </li>
     </ul>
   );
-  return <div>{text}</div>;
+  return (
+    <div>
+      {elementOfReviews.length > 0 ? (
+        text
+      ) : (
+        <p className={style.reply}>Sorry, reviews couldn't found</p>
+      )}
+    </div>
+  );
 };
 export default Reviews;

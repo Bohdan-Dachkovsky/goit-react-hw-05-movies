@@ -1,3 +1,7 @@
+li {
+  padding: 0px;
+  margin: 0px;
+}
 .content {
   width: 500px;
   height: 500px;
@@ -11,4 +15,11 @@
   display: flex;
   flex-direction: column;
   margin: 100px 60px;
+}
+.reply {
+  display: block;
+  max-width: 500px;
+  max-height: 25px;
+  margin: 0px;
+  padding: 0px;
 }

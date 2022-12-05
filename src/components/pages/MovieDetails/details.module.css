@@ -5,7 +5,10 @@ p {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 }
-
+div {
+  display: flex;
+  flex-direction: column;
+}
 .items {
   display: block;
   margin: 0px;
@@ -22,7 +25,10 @@ p {
   margin-top: 20px;
   margin-bottom: 15px;
 }
-
+.picture {
+  height: 450px;
+  width: 400px;
+}
 .text {
   text-align: start;
   display: block;
@@ -30,9 +36,9 @@ p {
   padding: 0px;
 }
 .boxD {
-  width: 375px;
+  width: 900pxpx;
   margin-left: 0px;
-  margin-left: 300px;
+
   display: unset;
   flex-direction: column;
   padding: 0px;

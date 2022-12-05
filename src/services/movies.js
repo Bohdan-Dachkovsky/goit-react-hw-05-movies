@@ -30,13 +30,13 @@ export const addMovie = async movieId => {
 };
 export const getReviews = async movieId => {
   const { data } = await axios.get(
-    `movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`
   );
   return data;
 };
 export const getActorsId = async movieId => {
   const { data } = await axios.get(
-    `movie/${movieId}/cast?api_key=${API_KEY}&language=en-US&page=1`
+    `movie/${movieId}/credits?api_key=${API_KEY}&language=en-US&page=1`
   );
   return data;
 };

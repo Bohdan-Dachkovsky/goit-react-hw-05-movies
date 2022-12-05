@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovie } from '../../../services/movies.js';
 import detailsStyle from './details.module.css';
@@ -7,7 +7,6 @@ const MovieDetails = () => {
 
   const [movie, addMovie] = useState([]);
 
-  // Profile(movieId);
   useEffect(() => {
     getMovie(movieId)
       .then(data => {
@@ -24,6 +23,7 @@ const MovieDetails = () => {
           src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
           alt={movie.title}
           srcSet={`https://image.tmdb.org/t/p/w500${movie.backdrop_path} 2x`}
+          className={detailsStyle.picture}
         />
         <p className={detailsStyle.text}>
           &nbsp;&nbsp;&nbsp;&nbsp;{movie.overview}
@@ -32,12 +32,12 @@ const MovieDetails = () => {
     </ol>
   );
   let actorsObj = (
-    <Link key={movieId} to="cast">
+    <Link key={movieId} to={`cast`}>
       Cast
     </Link>
   );
   let reviewsObj = (
-    <Link key={movieId} to="reviews">
+    <Link key={movieId} to={`reviews`}>
       Reviews
     </Link>
   );
@@ -46,6 +46,7 @@ const MovieDetails = () => {
       {movies}
       <div>{actorsObj}</div>
       <div>{reviewsObj}</div>
+      <Outlet />
     </div>
   );
 };
