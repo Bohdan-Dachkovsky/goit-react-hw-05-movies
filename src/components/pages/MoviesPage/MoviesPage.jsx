@@ -4,8 +4,8 @@ import { addMovie } from '../../../services/movies.js';
 const MoviesPage = () => {
   let { movieId } = useParams();
 
-  const [movie, setMovie] = useState([]);
-
+  const [movies, setMovie] = useState([]);
+  console.log(movies.id);
   // Profile(movieId);
   useEffect(() => {
     addMovie(movieId)
@@ -17,19 +17,22 @@ const MoviesPage = () => {
         return Promise.reject(error);
       });
   }, [movieId]);
-  let movies = (
-    <ol key={movie.id}>
-      <li key={movie.original_title}>
+  let newMovie = (
+    <ol key={movies.id}>
+      <li>
+        <h1>{movies.original_title}</h1>
+        <p>{movies.overview}</p>
+      </li>
+      <li>
         <img
-          src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
-          alt={movie.title}
-          srcSet={`https://image.tmdb.org/t/p/w500${movie.backdrop_path} 2x`}
+          src={`https://image.tmdb.org/t/p/w500/${movies.backdrop_path}`}
+          alt={movies.title}
+          srcSet={`https://image.tmdb.org/t/p/w500${movies.backdrop_path} 2x`}
         />
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;{movie.overview}</p>
       </li>
     </ol>
   );
 
-  return <div>{movies}</div>;
+  return <div>{newMovie}</div>;
 };
 export default MoviesPage;
