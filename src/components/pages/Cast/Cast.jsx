@@ -1,11 +1,12 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getActorsId } from '../../../services/movies.js';
 import pageStyle from './actors.module.css';
+
 const Cast = () => {
   const [cast, setCast] = useState([]);
   console.log(cast);
-
+  const navigate = useNavigate();
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -20,6 +21,21 @@ const Cast = () => {
     </li>
   ));
 
-  return <div>{actors}</div>;
+  return (
+    <div>
+      <ul>
+        {actors}
+        <li>
+          <button
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            Go back
+          </button>
+        </li>
+      </ul>
+    </div>
+  );
 };
 export default Cast;
