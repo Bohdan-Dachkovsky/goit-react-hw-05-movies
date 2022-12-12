@@ -7,6 +7,7 @@ const Movies = () => {
   const [films, setFilms] = useState([]);
   const [search, setMovie] = useState({ movie: '' });
   // const [name, onMoviesName] = useState('');
+
   useEffect(() => {
     getMoviesId(search).then(({ results }) => {
       setFilms(results);
@@ -28,8 +29,15 @@ const Movies = () => {
     // onMoviesName(search.movie);
     setMovie('');
   };
+
   let filmSite = films.map(({ id, title }) => (
-    <Link key={id} to={`/movie/${id}`}>
+    <Link
+      key={id}
+      to={`/movie/${id}?query=${JSON.stringify(search.movie).replace(
+        /"/g,
+        ''
+      )}`}
+    >
       <li>{title}</li>
     </Link>
   ));
