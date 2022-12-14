@@ -7,6 +7,9 @@ li {
 div {
   max-width: 1200px;
 }
+ol {
+  width: 1200px;
+}
 li:last-of-type {
   display: flex;
   flex-direction: row;

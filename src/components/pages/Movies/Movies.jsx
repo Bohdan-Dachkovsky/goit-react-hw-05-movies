@@ -48,27 +48,24 @@ const Movies = () => {
   //   );
   // };
   return (
-    <div>
-      {/* <ul>{object}</ul>  */}
-      <div className={style.block}>
-        <form onSubmit={handleSubmit}></form>
-        <label className={style.coverEl} htmlFor="searchingFilms">
-          <input
-            className={style.input}
-            type="search"
-            id="searchingFilms"
-            onChange={handleChange}
-            placeholder="Type movie name"
-            name="movie"
-            required
-          ></input>
-          {/* <button className={style.button} type="submit">
+    <div className={style.block}>
+      <form onSubmit={handleSubmit}></form>
+      <label className={style.coverEl} htmlFor="searchingFilms">
+        <input
+          className={style.input}
+          type="search"
+          id="searchingFilms"
+          onChange={handleChange}
+          placeholder="Type movie name"
+          name="movie"
+          required
+        ></input>
+        {/* <button className={style.button} type="submit">
             Search
           </button> */}
-        </label>
+      </label>
 
-        <div className={style.filmBox}>{filmSite}</div>
-      </div>
+      <div className={style.filmBox}>{filmSite}</div>
     </div>
   );
 };
