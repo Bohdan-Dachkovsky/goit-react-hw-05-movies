@@ -1,8 +1,9 @@
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, Link, Outlet, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovie } from '../../../services/movies.js';
 import detailsStyle from './details.module.css';
 const MovieDetails = () => {
+  const navigate = useNavigate();
   let { movieId } = useParams();
 
   const [movie, addMovie] = useState([]);
@@ -43,6 +44,13 @@ const MovieDetails = () => {
   );
   return (
     <div className={detailsStyle.boxD}>
+      <button
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        Go back
+      </button>
       {movies}
       <div>{actorsObj}</div>
       <div>{reviewsObj}</div>

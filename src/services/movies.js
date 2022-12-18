@@ -10,18 +10,19 @@ export const getTrendingMovies = async () => {
 
   return data;
 };
+export const getMoviesId = async search => {
+  const { data } = await axios.get(
+    `search/movie?api_key=${API_KEY}&query=${search}&page=1&include_adult=false`
+  );
+  return data;
+};
 export const getMovie = async movieId => {
   const { data } = await axios.get(
     `/movie/${movieId}?api_key=${API_KEY}&language=US&page=1&include_adult=false`
   );
   return data;
 };
-export const getMoviesId = async search => {
-  const { data } = await axios.get(
-    `search/movie?api_key=${API_KEY}&query=${search.movie}&page=1&include_adult=false`
-  );
-  return data;
-};
+
 export const addMovie = async movieId => {
   const { data } = await axios.get(
     `/movie/${movieId}?api_key=${API_KEY}&language=US&page=1&include_adult=false`

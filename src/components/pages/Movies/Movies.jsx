@@ -5,7 +5,7 @@ import style from './style.module.css';
 
 const Movies = () => {
   const [films, setFilms] = useState([]);
-  const [search, setMovie] = useState({ movie: '' });
+  const [search, setMovie] = useState('');
   // const [name, onMoviesName] = useState('');
 
   useEffect(() => {
@@ -15,29 +15,20 @@ const Movies = () => {
   }, [search]);
 
   const handleChange = event => {
-    setMovie({
-      movie: event.currentTarget.value.toLowerCase(),
-    });
+    setMovie(event.target.value.toLowerCase());
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-    if (search.movie === '') {
-      alert(`The movie isn't ${search.movie} loaded`);
+    if (search === '') {
+      alert(`The movie isn't ${search} loaded`);
       return;
     }
-    // onMoviesName(search.movie);
     setMovie('');
   };
 
   let filmSite = films.map(({ id, title }) => (
-    <Link
-      key={id}
-      to={`/movie/${id}?query=${JSON.stringify(search.movie).replace(
-        /"/g,
-        ''
-      )}`}
-    >
+    <Link key={id} to={`/movies/${id}`}>
       <li>{title}</li>
     </Link>
   ));
@@ -49,7 +40,7 @@ const Movies = () => {
   // };
   return (
     <div className={style.block}>
-      <form onSubmit={handleSubmit}></form>
+      <form method="get" onSubmit={handleSubmit} action="greet_user.php"></form>
       <label className={style.coverEl} htmlFor="searchingFilms">
         <input
           className={style.input}
@@ -60,9 +51,9 @@ const Movies = () => {
           name="movie"
           required
         ></input>
-        {/* <button className={style.button} type="submit">
-            Search
-          </button> */}
+        <button className={style.button} type="submit">
+          Search
+        </button>
       </label>
 
       <div className={style.filmBox}>{filmSite}</div>

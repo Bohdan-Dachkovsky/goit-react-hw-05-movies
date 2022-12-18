@@ -1,3 +1,13 @@
+li {
+  text-align: start;
+  padding: 0px;
+  margin: 0px;
+}
+.button {
+  list-style: none;
+  list-style-type: none;
+}
+
 .image {
   display: flex;
   flex-direction: column;
@@ -5,10 +15,18 @@
   height: 500;
 }
 .text {
+  margin: 0px;
+  padding: 0px;
   display: flex;
   flex-direction: column;
-  text-align: start;
+  text-align: left;
   list-style-type: disc;
   list-style: disc;
   margin-left: 100px;
+}
+.picture {
+  width: 250px;
+  height: 300px;
+  list-style: none;
+  list-style-type: none;
 }

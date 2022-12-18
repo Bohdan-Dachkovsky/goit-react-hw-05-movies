@@ -17,6 +17,11 @@ const Cast = () => {
 
   let actors = cast.map(item => (
     <li key={item.id}>
+      <img
+        src={`https://image.tmdb.org/t/p/w500/${item.profile_path}`}
+        alt={item.id}
+        className={pageStyle.picture}
+      />
       <p className={pageStyle.text}>{item.name}</p>
     </li>
   ));
@@ -27,6 +32,7 @@ const Cast = () => {
         {actors}
         <li>
           <button
+            className={pageStyle.button}
             onClick={() => {
               navigate(-1);
             }}
