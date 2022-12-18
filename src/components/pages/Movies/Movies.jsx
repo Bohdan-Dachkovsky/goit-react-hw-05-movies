@@ -23,7 +23,7 @@ const Movies = ({ onSubmit }) => {
     form.reset();
   };
   const handleClick = () => {
-    window.URL = `?query=search`;
+    window.URLSearchParams = `?query=${search}`;
   };
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movies/${id}`}>
