@@ -1,4 +1,4 @@
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes, NavLink } from 'react-router-dom';
 import { React, Suspense, lazy } from 'react';
 import Cast from './components/pages/Cast/Cast.jsx';
 import Reviews from './components/pages/Reviews/Reviews.jsx';
@@ -19,33 +19,46 @@ const Container = styled.div`
   color: rgb(0, 0, 0);
 `;
 const Navigation = styled.nav`
+  width: auto;
   margin: 0px;
   font-size: bold;
   font-weight: 700;
   text-align: center;
   display: flex;
   flex-direction: row;
+  textdecoration: none;
 `;
 const linkStyle = {
+  display: 'flex',
   margin: '1rem',
+  flexDirection: 'row',
   textDecoration: 'none',
-  color: 'blue',
+  linkStyle: 'none',
 };
 const text = {
   message: 'This page is not created',
   downloadedForm: 'Please click to reload page',
 };
 export const App = () => {
+  const Link = styled(NavLink)`
+    padding: 0px 25px;
+    text-decoration: none;
+    font-weight: 500;
+
+    &.active {
+      color: black;
+    }
+  `;
   return (
     <Container>
       <Navigation>
         <nav className="navigation">
-          <Link style={linkStyle} to="/">
-            Home
-          </Link>
-          <Link style={linkStyle} to="/movies">
-            Movies
-          </Link>
+          <li className={linkStyle}>
+            <Link to="/">Home</Link>
+          </li>
+          <li className={linkStyle}>
+            <Link to="/movies">Movies</Link>
+          </li>
         </nav>
       </Navigation>
       <Suspense fallback={<div>Loading...</div>}>

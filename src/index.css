@@ -10,6 +10,17 @@ body {
   display: flex;
   flex-direction: column;
 }
+li:first-of-type {
+  margin: 0 4rem;
+}
+li {
+  text-emphasis: none;
+  text-decoration: none;
+  list-style-type: none;
+}
+nav {
+  display: flex;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
