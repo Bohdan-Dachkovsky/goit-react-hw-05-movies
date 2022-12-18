@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { getMoviesId } from '../../../services/movies.js';
 import style from './style.module.css';
 
-const Movies = ({ onSubmit }) => {
+const Movies = () => {
   const [films, setFilms] = useState([]);
   const [search, setMovie] = useState('');
 
@@ -18,12 +18,11 @@ const Movies = ({ onSubmit }) => {
     const form = event.currentTarget;
     const movie = form.elements.movie.value;
     setMovie(movie);
-    onSubmit(movie);
 
     form.reset();
   };
   const handleClick = () => {
-    window.URLSearchParams = `?query=${search}`;
+    window.location = `?query=${JSON.stringify(search)}`;
   };
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movies/${id}`}>
