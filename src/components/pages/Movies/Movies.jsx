@@ -3,10 +3,9 @@ import { useEffect, useState } from 'react';
 import { getMoviesId } from '../../../services/movies.js';
 import style from './style.module.css';
 
-const Movies = () => {
+const Movies = ({ onSubmit }) => {
   const [films, setFilms] = useState([]);
   const [search, setMovie] = useState('');
-  // const [name, onMoviesName] = useState('');
 
   useEffect(() => {
     getMoviesId(search).then(({ results }) => {
@@ -14,19 +13,18 @@ const Movies = () => {
     });
   }, [search]);
 
-  const handleChange = event => {
-    setMovie(event.target.value.toLowerCase());
-  };
-
   const handleSubmit = event => {
     event.preventDefault();
-    if (search === '') {
-      alert(`The movie isn't ${search} loaded`);
-      return;
-    }
-    setMovie('');
-  };
+    const form = event.currentTarget;
+    const movie = form.elements.movie.value;
+    setMovie(movie);
+    onSubmit(movie);
 
+    form.reset();
+  };
+  const handleClick = () => {
+    window.URL = `?query=search`;
+  };
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movies/${id}`}>
       <li>{title}</li>
@@ -40,21 +38,21 @@ const Movies = () => {
   // };
   return (
     <div className={style.block}>
-      <form method="get" onSubmit={handleSubmit} action="greet_user.php"></form>
-      <label className={style.coverEl} htmlFor="searchingFilms">
-        <input
-          className={style.input}
-          type="search"
-          id="searchingFilms"
-          onChange={handleChange}
-          placeholder="Type movie name"
-          name="movie"
-          required
-        ></input>
-        <button className={style.button} type="submit">
-          Search
-        </button>
-      </label>
+      <form onSubmit={handleSubmit}>
+        <label className={style.coverEl} htmlFor="searchingFilms">
+          <input
+            className={style.input}
+            type="search"
+            id="searchingFilms"
+            placeholder="Type movie name"
+            name="movie"
+            required
+          ></input>
+          <button onClick={handleClick} className={style.button} type="submit">
+            Search
+          </button>
+        </label>
+      </form>
 
       <div className={style.filmBox}>{filmSite}</div>
     </div>

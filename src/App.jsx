@@ -40,6 +40,8 @@ const text = {
   downloadedForm: 'Please click to reload page',
 };
 export const App = () => {
+  // const [search, setSearchMovie] = useState('');
+
   const Link = styled(NavLink)`
     padding: 0px 25px;
     text-decoration: none;
@@ -64,7 +66,7 @@ export const App = () => {
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/movies" element={<Movies />} />
+          <Route path="/movies" element={<Movies onSubmit />} />
           <Route path="/movies/:movieId" element={<MovieDetails />}>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
