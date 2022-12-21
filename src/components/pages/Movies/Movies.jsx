@@ -23,7 +23,7 @@ const Movies = () => {
   };
 
   const handleClick = () => {
-    window.location.href = `?query=${JSON.parse(search)}`;
+    window.location.href = `?query=${JSON.stringify(search)}`;
   };
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movies/${id}`}>
