@@ -23,12 +23,7 @@ const Movies = () => {
   };
 
   const handleClick = () => {
-    if (window.webkitURL !== undefined) {
-      window.location.href = ` http://goit-react-hw-05-movies/movies?query=${JSON.stringify(
-        search
-      )}`;
-      return;
-    }
+    window.location.href = `?query=${JSON.stringify(search)}`;
   };
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movies/${id}`}>
