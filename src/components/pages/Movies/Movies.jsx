@@ -24,7 +24,9 @@ const Movies = () => {
 
   const handleClick = () => {
     if (window.webkitURL !== undefined) {
-      // window.location.href = `movies?query=${JSON.stringify(search)}`;
+      window.location.href = ` http://goit-react-hw-05-movies/movies?query=${JSON.stringify(
+        search
+      )}`;
       return;
     }
   };
