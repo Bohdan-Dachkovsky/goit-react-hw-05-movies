@@ -24,7 +24,8 @@ const Movies = () => {
 
   const handleClick = () => {
     if (window.webkitURL !== undefined) {
-      window.location.href = `/?query=${search}`;
+      // window.location.href = `movies?query=${JSON.stringify(search)}`;
+      return;
     }
   };
   let filmSite = films.map(({ id, title }) => (
@@ -40,7 +41,7 @@ const Movies = () => {
   // };
   return (
     <div className={style.block}>
-      <form action="goit-react-hw-05-movies/movies" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <label className={style.coverEl} htmlFor="searchingFilms">
           <input
             className={style.input}
