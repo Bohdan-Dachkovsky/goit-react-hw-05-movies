@@ -24,7 +24,7 @@ const Movies = () => {
 
   const handleClick = () => {
     if (window.webkitURL !== undefined) {
-      window.location.href = '/?query=' + JSON.stringify({ search });
+      window.location.href = 'movies/?query=' + JSON.stringify({ search });
     }
   };
   let filmSite = films.map(({ id, title }) => (
