@@ -18,13 +18,16 @@ const Movies = () => {
     const form = event.currentTarget;
     const movie = form.elements.movie.value;
     setMovie(movie);
-
     form.reset();
   };
 
-  const handleClick = () => {
-    window.location.href = `?query=${JSON.parse(search)}`;
-  };
+  // const handleClick = (event) => {
+  //   document.addEventListener( '?query=${JSON.stringify(search)}', function( event ) {
+  //       location = 'http://example.com/';
+  //     }, false )
+  //   }
+  //   // window.location.href = `?query=${JSON.stringify(search)}`;
+  // };
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movies/${id}`}>
       <li>{title}</li>
@@ -38,7 +41,7 @@ const Movies = () => {
   // };
   return (
     <div className={style.block}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} method="get">
         <label className={style.coverEl} htmlFor="searchingFilms">
           <input
             className={style.input}
@@ -48,7 +51,7 @@ const Movies = () => {
             name="movie"
             required
           ></input>
-          <button onClick={handleClick} className={style.button} type="submit">
+          <button className={style.button} type="submit">
             Search
           </button>
         </label>

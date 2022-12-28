@@ -40,7 +40,7 @@ const text = {
   downloadedForm: 'Please click to reload page',
 };
 export const App = () => {
-  // const [search, setSearchMovie] = useState('');
+  //  const [search, setSearchMovie] = useState('');
 
   const Link = styled(NavLink)`
     padding: 0px 25px;
