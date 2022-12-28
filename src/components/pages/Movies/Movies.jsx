@@ -17,6 +17,7 @@ const Movies = () => {
     event.preventDefault();
     const form = event.currentTarget;
     const movie = form.elements.movie.value;
+    window.location = 'query=' + this.elements.movie;
     setMovie(movie);
     form.reset();
   };
