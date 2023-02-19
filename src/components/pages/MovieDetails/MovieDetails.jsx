@@ -46,7 +46,7 @@ const MovieDetails = () => {
     <div className={detailsStyle.boxD}>
       <button
         onClick={() => {
-          navigate(-1);
+          navigate('/');
         }}
       >
         Go back

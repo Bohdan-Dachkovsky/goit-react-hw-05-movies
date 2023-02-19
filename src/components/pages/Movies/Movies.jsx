@@ -17,18 +17,12 @@ const Movies = () => {
     event.preventDefault();
     const form = event.currentTarget;
     const movie = form.elements.movie.value;
-    window.location = 'query=' + this.elements.movie;
     setMovie(movie);
     form.reset();
   };
-
-  // const handleClick = (event) => {
-  //   document.addEventListener( '?query=${JSON.stringify(search)}', function( event ) {
-  //       location = 'http://example.com/';
-  //     }, false )
-  //   }
-  //   // window.location.href = `?query=${JSON.stringify(search)}`;
-  // };
+  const handleClick = () => {
+    window.location.URL = '?query=' + search;
+  };
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movies/${id}`}>
       <li>{title}</li>
@@ -52,7 +46,7 @@ const Movies = () => {
             name="movie"
             required
           ></input>
-          <button className={style.button} type="submit">
+          <button onClick={handleClick} className={style.button} type="submit">
             Search
           </button>
         </label>
