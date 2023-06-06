@@ -72,7 +72,6 @@ export const App = () => {
             <Route path="reviews" element={<Reviews />} />
             <Route path="*" element={<LoaderPage loading={text} />} />
           </Route>
-          {/* <Route exact path="/movie/:movieId" element={<MoviesPage />} /> */}
         </Routes>
       </Suspense>
     </Container>
