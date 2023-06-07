@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMoviesId } from '../../../services/movies.js';
 import style from './style.module.css';
-
+const API_KEY = '0eea8bea59a913a72c55562f66c1e72e';
 const Movies = () => {
   const [films, setFilms] = useState([]);
   const [search, setMovie] = useState('');
@@ -23,7 +23,7 @@ const Movies = () => {
   };
 
   const handleClick = () => {
-   window.location =`search=${search}`;
+    History.replaceState(`search/movie?api_key=${API_KEY}&query=${search}&page=1&include_adult=false`, '', `search=${search}`);
   };
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movies/${id}`}>
