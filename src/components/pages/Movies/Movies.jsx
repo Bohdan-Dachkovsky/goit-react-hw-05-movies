@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMoviesId } from '../../../services/movies.js';
+import { useHistory } from "react-router-dom";
 import style from './style.module.css';
 const API_KEY = '0eea8bea59a913a72c55562f66c1e72e';
 const Movies = () => {
@@ -21,9 +22,9 @@ const Movies = () => {
     setMovie(movie);
     form.reset();
   };
-
+  const history = useHistory()
   const handleClick = () => {
-    History.replaceState(`search/movie?api_key=${API_KEY}&query=${search}&page=1&include_adult=false`, '', `search=${search}`);
+    history.replaceState(`search/movie?api_key=${API_KEY}&query=${search}&page=1&include_adult=false`, '', `search=${search}`);
   };
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movies/${id}`}>
