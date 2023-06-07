@@ -23,7 +23,7 @@ const Movies = () => {
   };
 
   const handleClick = () => {
-   window.location.toBeCalledWith(`/search=${search}`);
+   window.location =`search=${search}`;
   };
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movies/${id}`}>
