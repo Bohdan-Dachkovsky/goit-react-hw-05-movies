@@ -21,7 +21,7 @@ const Movies = () => {
     form.reset();
   };
   const handleClick = () => {
-    window.location.URL = `?query=${search}`;
+    window.location = `?query=${search}`;
   };
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movies/${id}`}>
