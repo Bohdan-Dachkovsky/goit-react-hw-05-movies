@@ -10,6 +10,7 @@ const Movies = () => {
     getMoviesId(search).then(({ results }) => {
       setFilms(results);
     });
+    
   }, [search]);
 
   const handleSubmit = event => {
@@ -21,7 +22,7 @@ const Movies = () => {
   };
 
   const handleClick = () => {
-   window.replaceState(null, `search=${search}`);
+   window.replaceState(null, "", `search=${search}`);
   };
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movies/${id}`}>
