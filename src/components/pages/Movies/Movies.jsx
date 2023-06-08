@@ -27,7 +27,7 @@ const Movies = () => {
 
   if (button) {
     // Not called
-    button.addEventListener('click',  (event) => {
+    button.addEventListener('submit',  (event) => {
       window.history.replaceState(`search/movie?api_key=${API_KEY}&query=${search}&page=1&include_adult=false`, '', `search=${search}`);
       event.preventDefault();
     });
