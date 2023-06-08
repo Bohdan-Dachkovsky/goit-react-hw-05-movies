@@ -22,10 +22,11 @@ const Movies = () => {
     setMovie(movie);
     form.reset();
   };
-  
-  const hundleClick  = event => {
-      window.history.replaceState(`search/movie?api_key=${API_KEY}&query=${search}&page=1&include_adult=false`, '', `search=${search}`);  
-  }
+  document.addEventListener('submit',() => {
+
+    window.history.replaceState(`search/movie?api_key=${API_KEY}&query=${search}&page=1&include_adult=false`, '', `search=${search}`);
+  })
+
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movies/${id}`}>
       <li>{title}</li>
@@ -49,7 +50,7 @@ const Movies = () => {
             name="movie"
             required
           ></input>
-          <button className={style.button} onClick={hundleClick} type="submit">
+          <button className={style.button} ype="submit">
             Search
           </button>
         </label>
