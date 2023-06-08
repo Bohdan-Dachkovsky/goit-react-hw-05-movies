@@ -23,7 +23,7 @@ const Movies = () => {
     form.reset();
   };
   
-  const button = document.getElementsByClassName('button');
+  const button = document.getElementsById('button');
 
   if (button) {
     // Not called
@@ -55,7 +55,7 @@ const Movies = () => {
             name="movie"
             required
           ></input>
-          <button className={style.button} type="submit">
+          <button className={style.button} id="button" type="submit">
             Search
           </button>
         </label>
