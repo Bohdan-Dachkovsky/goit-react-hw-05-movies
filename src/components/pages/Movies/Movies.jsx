@@ -20,9 +20,15 @@ const Movies = () => {
     const form = event.currentTarget;
     const movie = form.elements.movie.value;
     setMovie(movie);
-    window.history.replaceState(`search/movie?api_key=${API_KEY}&query=${search}&page=1&include_adult=false`, '', `search=${search}`);
     form.reset();
   };
+  function logSubmit(event) {
+    window.history.replaceState(`search/movie?api_key=${API_KEY}&query=${search}&page=1&include_adult=false`, '', `search=${search}`);
+    event.preventDefault();
+  }
+  
+  const form = document.getElementById("form");
+  form.addEventListener("submit", logSubmit);
 
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movies/${id}`}>
