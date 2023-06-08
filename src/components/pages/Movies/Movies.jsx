@@ -27,7 +27,7 @@ const Movies = () => {
     event.preventDefault();
   }
   
-  const form = document.getElementById("form");
+  const form = document.getElementByTagName("form");
   form.addEventListener("submit", logSubmit);
 
   let filmSite = films.map(({ id, title }) => (
