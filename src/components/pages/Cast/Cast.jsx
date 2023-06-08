@@ -34,7 +34,7 @@ const Cast = () => {
           <button
             className={pageStyle.button}
             onClick={() => {
-              navigate(-1);
+              navigate('/');
             }}
           >
             Go back
