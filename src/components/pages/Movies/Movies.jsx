@@ -22,14 +22,16 @@ const Movies = () => {
     setMovie(movie);
     form.reset();
   };
-  function logSubmit(event) {
-    window.history.replaceState(`search/movie?api_key=${API_KEY}&query=${search}&page=1&include_adult=false`, '', `search=${search}`);
-    event.preventDefault();
-  }
   
   const button = document.getElementsByClassName('button');
-  button[0].addEventListener("submit", logSubmit);
 
+  if (button) {
+    // Not called
+    button.addEventListener('click',  (event) => {
+      window.history.replaceState(`search/movie?api_key=${API_KEY}&query=${search}&page=1&include_adult=false`, '', `search=${search}`);
+      event.preventDefault();
+    });
+  }
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movies/${id}`}>
       <li>{title}</li>
