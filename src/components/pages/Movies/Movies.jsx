@@ -22,10 +22,11 @@ const Movies = () => {
     setMovie(movie);
     form.reset();
   };
-
+  const element = document.getElementsByTagName('button')
   const handleClick = () => {
     window.history.replaceState(`search/movie?api_key=${API_KEY}&query=${search}&page=1&include_adult=false`, '', `search=${search}`);
   };
+  element.addEventListener("click", handleClick);
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movies/${id}`}>
       <li>{title}</li>
@@ -49,7 +50,7 @@ const Movies = () => {
             name="movie"
             required
           ></input>
-          <button onClick={handleClick} className={style.button} type="submit">
+          <button className={style.button} type="submit">
             Search
           </button>
         </label>
