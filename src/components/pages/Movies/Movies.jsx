@@ -27,8 +27,8 @@ const Movies = () => {
     event.preventDefault();
   }
   
-  const form = document.getElementsByClassName('button');
-  form.addEventListener("submit", logSubmit);
+  const button = document.getElementsByClassName('button');
+  button[0].addEventListener("submit", logSubmit);
 
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movies/${id}`}>
