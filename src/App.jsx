@@ -64,7 +64,7 @@ export const App = () => {
         </nav>
       </Navigation>
       <Suspense fallback={<div>Loading...</div>}>
-      <Switch> 
+ 
       <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies onSubmit />} />
@@ -74,8 +74,6 @@ export const App = () => {
             <Route path="*" element={<LoaderPage loading={text} />} />
           </Route>
         </Routes>
-        </Switch> 
-       
       </Suspense>
     </Container>
   );
