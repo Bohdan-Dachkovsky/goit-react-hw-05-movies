@@ -1,5 +1,6 @@
 import { Route, Routes, NavLink } from 'react-router-dom';
 import { React, Suspense, lazy } from 'react';
+import { HashRouter  } from 'react-router-dom';
 import Cast from './components/pages/Cast/Cast.jsx';
 import Reviews from './components/pages/Reviews/Reviews.jsx';
 //import Home from './pages/Home/Home.jsx';
@@ -64,7 +65,8 @@ export const App = () => {
         </nav>
       </Navigation>
       <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
+      <HashRouter>
+      <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies onSubmit />} />
           <Route path="/movies/:movieId" element={<MovieDetails />}>
@@ -73,6 +75,8 @@ export const App = () => {
             <Route path="*" element={<LoaderPage loading={text} />} />
           </Route>
         </Routes>
+      </HashRouter>
+       
       </Suspense>
     </Container>
   );
