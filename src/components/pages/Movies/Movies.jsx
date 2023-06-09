@@ -9,10 +9,11 @@ const Movies = () => {
   const [search, setMovie] = useState('');
 
   useEffect(() => {
+    if(search !== 0) {
     getMoviesId(search).then(({ results }) => {
       setFilms(results);
     });
-    
+  }
   }, [search]);
 
   const handleSubmit = event => {
