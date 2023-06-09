@@ -1,4 +1,4 @@
-import { Route, Routes, NavLink, Switch} from 'react-router-dom';
+import { Route, Routes, NavLink} from 'react-router-dom';
 import { React, Suspense, lazy} from 'react';
 import Cast from './components/pages/Cast/Cast.jsx';
 import Reviews from './components/pages/Reviews/Reviews.jsx';
