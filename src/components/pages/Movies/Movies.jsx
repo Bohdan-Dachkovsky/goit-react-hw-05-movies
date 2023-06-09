@@ -22,9 +22,10 @@ const Movies = () => {
     setMovie(movie);
     form.reset();
   };
-  document.addEventListener('submit',() => {
+  document.addEventListener('submit',(event) => {
 
     window.history.replaceState(`search/movie?api_key=${API_KEY}&query=${search}&page=1&include_adult=false`, '', `/?search=${search}`);
+    event.preventDefault()
   })
 
   let filmSite = films.map(({ id, title }) => (
