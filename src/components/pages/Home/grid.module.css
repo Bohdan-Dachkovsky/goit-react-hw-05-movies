@@ -9,8 +9,7 @@ div {
   height: auto;
 }
 li {
-  width: auto;
-  text-align: center;
+  width: 375px;
   list-style-type: none;
 }
 img {

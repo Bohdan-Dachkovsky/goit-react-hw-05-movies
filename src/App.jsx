@@ -27,6 +27,11 @@ const Navigation = styled.nav`
   display: flex;
   flex-direction: row;
   textdecoration: none;
+  &.linkStyle {
+
+      margin: 0px;
+      padding: 0px;
+    }
 `;
 const linkStyle = {
   display: 'flex',
@@ -38,6 +43,11 @@ const linkStyle = {
 const text = {
   message: 'This page is not created',
   downloadedForm: 'Please click to reload page',
+};
+const textLights = {
+  display: 'block',
+  width: '15px',
+  height: '15px',
 };
 export const App = () => {
   //  const [search, setSearchMovie] = useState('');
@@ -57,9 +67,11 @@ export const App = () => {
         <nav className="navigation">
           <li className={linkStyle}>
             <Link to="/">Home</Link>
+            <div className={textLights}></div>
           </li>
           <li className={linkStyle}>
             <Link to="/movies">Movies</Link>
+            <div className={textLights}></div>
           </li>
         </nav>
       </Navigation>
