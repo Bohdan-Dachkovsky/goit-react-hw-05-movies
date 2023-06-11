@@ -25,9 +25,10 @@ const Movies = () => {
   };
   document.addEventListener('submit',(event) => {
 
-    window.history.replaceState(`search/movie?api_key=${API_KEY}&query=${search}&page=1&include_adult=false`, '', `/?search=${search}`);
+    window.history.replaceState(`search/movie?api_key=${API_KEY}&query=${search}&page=1&include_adult=false`, 'movie', `/goit-react-hw-05-movies/?search=${search}`);
     event.preventDefault()
   })
+
 
   let filmSite = films.map(({ id, title }) => (
     <Link key={id} to={`/movies/${id}`}>
