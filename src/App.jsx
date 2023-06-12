@@ -59,6 +59,7 @@ export const App = () => {
 
     &.active {
       color: black;
+      text-decoration: underline;
     }
   `;
   return (
