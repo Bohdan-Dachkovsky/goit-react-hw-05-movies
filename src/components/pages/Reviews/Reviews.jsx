@@ -5,13 +5,11 @@ import style from './frameS.module.css';
 const Reviews = () => {
   const [elementOfReviews, addReviews] = useState([]);
   const { movieId } = useParams();
-
   useEffect(() => {
     getReviews(movieId).then(({ results }) => {
       addReviews(results);
     });
   }, [movieId]);
-
   let text = (
     <ul key={elementOfReviews.id} className={style.reviews}>
       <li>
