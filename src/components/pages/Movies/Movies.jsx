@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getMoviesId } from '../../../services/movies.js';
-import {MoviePage} from '../MoviePage/MoviePage.jsx'
+import MoviePage from '../MoviePage/MoviePage.jsx'
 import style from './style.module.css';
 const API_KEY = '0eea8bea59a913a72c55562f66c1e72e';
 const Movies = () => {
