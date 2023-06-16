@@ -10,6 +10,8 @@ const Movies = () => {
   const [search, setMovie] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const name = searchParams.get("movie");
+
+
   useEffect(() => {
     if(search !== 0) {
     getMoviesId(search).then(({ results }) => {
@@ -36,7 +38,7 @@ const Movies = () => {
   // };
   return (
     <div className={style.block}>
-       <Form submit = {handleSubmit} search = {name} isElement ={search}/>
+       <Form submit = {handleSubmit} search = {name}/>
        <MoviePage movieArr = {films}/>
 
     </div>

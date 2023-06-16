@@ -1,10 +1,6 @@
 import style from './markup.module.css'
-const Form = ({submit, search, isElement}) => {
-    if (isElement) {
-        search = ""
-    } else {
-        search = isElement
-    }
+const Form = ({submit, search}) => {
+
 return (
     <form onSubmit={submit} method="get">
         <label className={style.coverEl} htmlFor="searchingFilms">
