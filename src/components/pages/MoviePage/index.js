@@ -1,1 +1,1 @@
-export { default as MoviePage } from './MoviePage.jsx';
+export { default as MoviePage } from './MoviePage';

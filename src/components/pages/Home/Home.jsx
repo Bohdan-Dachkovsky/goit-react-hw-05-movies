@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import {MovieList} from '../TrendMovie/MovieList'
+import {MovieList} from '../TrendMovie/MovieList.jsx'
 import { getTrendingMovies } from '../../../services/movies.js';
 
 

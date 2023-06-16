@@ -7,7 +7,7 @@ import Reviews from './components/pages/Reviews/Reviews.jsx';
 import MovieDetails from './components/pages/MovieDetails/MovieDetails.jsx';
 import LoaderPage from './components/pages/LoaderPage/LoaderPage.jsx';
 import {Container, Navigation, Link} from './components/index.js'
-import style from './mainStyle.js'
+import style from './mainStyle.css'
 
 const Home = lazy(() => import('./components/pages/Home/Home'));
 const Movies = lazy(() => import('./components/pages/Movies/Movies'));
