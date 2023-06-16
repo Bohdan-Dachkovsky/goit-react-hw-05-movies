@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import grid from './grid.module.css';
 
-
 const MovieList = ({movieArr, error}) => {
     const renderFilms = movieArr.map(({ id, title }) => (
         <Link key={id} to={`movies/${id}`}>
