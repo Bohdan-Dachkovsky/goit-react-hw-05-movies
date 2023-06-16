@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import {MovieList} from '../TrendMovie/MovieList.jsx'
+import {MovieList} from '../MovieList/MovieList.jsx'
 import { getTrendingMovies } from '../../../services/movies.js';
 
 
@@ -24,6 +24,6 @@ const Home = () => {
   }, []);
 
 
-  return <MovieList movieArr = {movies} error = {error}/>;
+  return <MovieList movieArr = {movies} error = {error}/>
 };
 export default Home;
