@@ -1,11 +1,11 @@
-import { useParams, Link, Outlet, useNavigate } from 'react-router-dom';
+import { useParams, Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovie } from '../../../services/movies.js';
 import detailsStyle from './details.module.css';
 const MovieDetails = () => {
   const navigate = useNavigate();
   let { movieId } = useParams();
-
+  const location = useLocation();
   const [movie, addMovie] = useState([]);
 
   useEffect(() => {
@@ -17,8 +17,17 @@ const MovieDetails = () => {
         return Promise.reject(error);
       });
   }, [movieId]);
-  let movies = (
-    <ol key={movie.id}>
+ 
+  return (
+    <div className={detailsStyle.boxD}>
+      <button
+        onClick={() => {
+          navigate("/", {state: location.state});
+        }}
+      >
+        Go back
+      </button>
+        <ol key={movie.id}>
       <li className={detailsStyle.items} key={movie.original_title}>
         <img
           src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
@@ -31,29 +40,16 @@ const MovieDetails = () => {
         </p>
       </li>
     </ol>
-  );
-  let actorsObj = (
-    <Link key={movieId} to={`cast`}>
+      
+      <div>
+      <Link key={movieId} to={`cast`}>
       Cast
     </Link>
-  );
-  let reviewsObj = (
-    <Link key={movieId} to={`reviews`}>
+    </div>
+      <div> 
+      <Link key={movieId} to={`reviews`}>
       Reviews
-    </Link>
-  );
-  return (
-    <div className={detailsStyle.boxD}>
-      <button
-        onClick={() => {
-          navigate('/');
-        }}
-      >
-        Go back
-      </button>
-      {movies}
-      <div>{actorsObj}</div>
-      <div>{reviewsObj}</div>
+    </Link></div>
       <Outlet />
     </div>
   );

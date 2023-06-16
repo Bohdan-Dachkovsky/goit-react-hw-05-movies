@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getActorsId } from '../../../services/movies.js';
 import pageStyle from './actors.module.css';
@@ -6,7 +6,7 @@ import pageStyle from './actors.module.css';
 const Cast = () => {
   const [cast, setCast] = useState([]);
   console.log(cast);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -15,31 +15,31 @@ const Cast = () => {
     });
   }, [movieId]);
 
-  let actors = cast.map(item => (
-    <li key={item.id}>
-      <img
-        src={`https://image.tmdb.org/t/p/w500/${item.profile_path}`}
-        alt={item.id}
-        className={pageStyle.picture}
-      />
-      <p className={pageStyle.text}>{item.name}</p>
-    </li>
-  ));
+
 
   return (
     <div>
       <ul>
-        {actors}
-        <li>
-          <button
-            className={pageStyle.button}
-            onClick={() => {
-              navigate('/');
-            }}
-          >
-            Go back
-          </button>
-        </li>
+      {cast.map(item => (
+    <li key={item.id} className={pageStyle.list}>
+    <picture>
+    <source 
+    srcSet={`https://image.tmdb.org/t/p/w500/${item.profile_path}`}
+    media = '(min-width:250px)'
+    ></source>
+    <img
+        src={item.profile_path ? `https://image.tmdb.org/t/p/w500/${item.profile_path}` :
+        `https://w7.pngwing.com/pngs/741/68/png-transparent-user-computer-icons-user-miscellaneous-cdr-rectangle.png`}
+        alt={item.id}
+        className={pageStyle.images}
+      />
+      
+    </picture>  
+      <p className={pageStyle.text}>{item.name}</p>
+    </li>
+  ))
+  }
+       
       </ul>
     </div>
   );

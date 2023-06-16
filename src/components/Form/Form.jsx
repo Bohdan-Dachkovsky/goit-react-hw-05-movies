@@ -7,11 +7,10 @@ return (
           <input
             className={style.input}
             type="search"
-            value = {search || ''}
+            defaultValue = {search}
             id="searchingFilms"
             placeholder="Type movie name"
             name="movie"
-            defaultValue="search"
             required
           ></input>
           <button className={style.button} type="submit">
