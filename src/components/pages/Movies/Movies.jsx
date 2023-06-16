@@ -36,7 +36,7 @@ const Movies = () => {
   // };
   return (
     <div className={style.block}>
-       <Form submit = {handleSubmit} search = {name}/>
+       <Form submit = {handleSubmit} state={search} search = {name}/>
        <MoviePage movieArr = {films}/>
 
     </div>
