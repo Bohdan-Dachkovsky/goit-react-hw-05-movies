@@ -7,6 +7,6 @@ const MoviePage = ({movieArr}) => {
           <li>{title}</li>
         </Link>
       ));
-return <div className={s.filmBox}>{filmSite}</div>
+return (<div className={s.filmBox}>{filmSite}</div>);
 }
-export default MoviePage
+export default MoviePage;

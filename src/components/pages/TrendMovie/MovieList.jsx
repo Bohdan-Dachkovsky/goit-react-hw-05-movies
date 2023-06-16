@@ -7,6 +7,6 @@ const MovieList = ({movieArr, error}) => {
           {title}
         </Link>
          ));
-return <div className={grid.box}>{error || renderFilms}</div>;
+return (<div className={grid.box}>{error || renderFilms}</div>);
 };
-export default MovieList
+export default MovieList;
