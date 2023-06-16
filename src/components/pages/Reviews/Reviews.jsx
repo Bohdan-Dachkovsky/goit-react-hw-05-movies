@@ -1,4 +1,4 @@
-import { getReviews } from '../../services/movies.js';
+import { getReviews } from '../../../services/movies.js';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import style from './frameS.module.css';

@@ -1,6 +1,6 @@
 import { useParams, Link, Outlet, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getMovie } from '../../services/movies.js';
+import { getMovie } from '../../../services/movies.js';
 import detailsStyle from './details.module.css';
 const MovieDetails = () => {
   const navigate = useNavigate();

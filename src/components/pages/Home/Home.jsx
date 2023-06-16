@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getTrendingMovies } from '../../src/services/movies.js';
-import grid from './grid.module.css';
+import {MovieList} from '../TrendMovie/MovieList'
+import { getTrendingMovies } from '../../../services/movies.js';
+
+
 const Home = () => {
   const [movies, setMovies] = useState([]);
 
@@ -22,11 +23,7 @@ const Home = () => {
       });
   }, []);
 
-  const renderFilms = movies.map(({ id, title }) => (
-    <Link key={id} to={`movies/${id}`}>
-      {title}
-    </Link>
-  ));
-  return <div className={grid.box}>{error || renderFilms}</div>;
+
+  return <MovieList movieArr = {movies} error = {error}/>;
 };
 export default Home;

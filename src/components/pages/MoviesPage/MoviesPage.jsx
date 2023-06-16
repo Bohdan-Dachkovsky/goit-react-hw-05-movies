@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { addMovie } from '../../services/movies.js';
+import { addMovie } from '../../../services/movies.js';
 import size from './search.module.css';
 const MoviesPage = () => {
   let { movieId } = useParams();

@@ -1,0 +1,27 @@
+div {
+    display: grid;
+    grid-template-columns: 375px 375px 375px;
+    margin-left: 15px;
+    grid-gap: 25px;
+  }
+  .box {
+    width: 1200px;
+    height: auto;
+  }
+  li {
+    width: 375px;
+    list-style-type: none;
+  }
+  img {
+    width: 375px;
+    height: 400px;
+  }
+  .reference {
+    font-family: Oxygen;
+    list-style: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: large;
+    font-weight: 700;
+    text-align: center;
+  }

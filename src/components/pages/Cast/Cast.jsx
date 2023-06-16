@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getActorsId } from '../../services/movies.js';
+import { getActorsId } from '../../../services/movies.js';
 import pageStyle from './actors.module.css';
 
 const Cast = () => {

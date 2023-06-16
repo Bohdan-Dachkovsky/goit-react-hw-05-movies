@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getMoviesId } from '../../services/movies.js';
-
+import { getMoviesId } from '../../../services/movies.js';
+import {MoviePage} from '../MoviePage/MoviePage.jsx'
 import style from './style.module.css';
 const API_KEY = '0eea8bea59a913a72c55562f66c1e72e';
 const Movies = () => {
@@ -30,11 +29,6 @@ const Movies = () => {
   })
 
 
-  let filmSite = films.map(({ id, title }) => (
-    <Link key={id} to={`/movies/${id}`}>
-      <li>{title}</li>
-    </Link>
-  ));
 
   // const getMovies = () => {
   //   return filmSite.filter(film =>
@@ -53,13 +47,13 @@ const Movies = () => {
             name="movie"
             required
           ></input>
-          <button className={style.button} ype="submit">
+          <button className={style.button} type="submit">
             Search
           </button>
         </label>
       </form>
+       <MoviePage movieArr = {films}/>
 
-      <div className={style.filmBox}>{filmSite}</div>
     </div>
   );
 };
