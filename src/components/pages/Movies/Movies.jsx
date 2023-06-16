@@ -29,8 +29,6 @@ const Movies = () => {
     form.reset();
   };
  
-
-
   // const getMovies = () => {
   //   return filmSite.filter(film =>
   //     film.name.toLowerCase().includes(search.toLowerCase())
