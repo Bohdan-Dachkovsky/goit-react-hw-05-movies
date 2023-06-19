@@ -7,11 +7,7 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
 
   const [error, setError] = useState(null);
-  // function ProfilePage() {
-  //   // Get the userId param from the URL.
-  //   let { userId } = useParams();
-  //   // ...
-  // }
+
   useEffect(() => {
     getTrendingMovies()
       .then(({ results }) => {

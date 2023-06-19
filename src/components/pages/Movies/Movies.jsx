@@ -13,12 +13,12 @@ const Movies = () => {
 
 
   useEffect(() => {
-    if(search !== 0) {
+    if(name !== 0) {
     getMoviesId(search).then(({ results }) => {
       setFilms(results);
     });
   }
-  }, [search]);
+  }, [search, name]);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -29,11 +29,7 @@ const Movies = () => {
     form.reset();
   };
  
-  // const getMovies = () => {
-  //   return filmSite.filter(film =>
-  //     film.name.toLowerCase().includes(search.toLowerCase())
-  //   );
-  // };
+ 
   return (
     <div className={style.block}>
        <Form submit = {handleSubmit} state={search} search = {name}/>

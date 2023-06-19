@@ -6,7 +6,7 @@ import pageStyle from './actors.module.css';
 const Cast = () => {
   const [cast, setCast] = useState([]);
   console.log(cast);
-  // const navigate = useNavigate();
+
   const { movieId } = useParams();
 
   useEffect(() => {
