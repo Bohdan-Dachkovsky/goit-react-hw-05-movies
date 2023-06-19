@@ -5,13 +5,12 @@ import pageStyle from './actors.module.css';
 
 const Cast = () => {
   const [cast, setCast] = useState([]);
-  console.log(cast);
-
   const { movieId } = useParams();
 
   useEffect(() => {
     getActorsId(movieId).then(({ cast }) => {
       setCast(cast);
+      console.log(cast)
     });
   }, [movieId]);
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getMoviesId } from '../../../services/movies.js';
 import Form from '../../Form/Form.jsx';
-import MoviePage from '../MoviePage/MoviePage.jsx'
+import MovieSearchPage from './MovieSearchPage.jsx'
 import style from './style.module.css';
 
 const Movies = () => {
@@ -33,7 +33,7 @@ const Movies = () => {
   return (
     <div className={style.block}>
        <Form submit = {handleSubmit} state={search} search = {name}/>
-       <MoviePage movieArr = {films}/>
+       <MovieSearchPage movieArr = {films}/>
 
     </div>
   );

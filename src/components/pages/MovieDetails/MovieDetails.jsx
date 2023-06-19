@@ -22,7 +22,7 @@ const MovieDetails = () => {
     <div className={detailsStyle.boxD}>
       <button
         onClick={() => {
-          navigate("/", {state: location.state});
+          navigate('/', {replace: true, state: {previousURL:location.pathname}});
         }}
       >
         Go back
@@ -30,7 +30,8 @@ const MovieDetails = () => {
         <ol key={movie.id}>
       <li className={detailsStyle.items} key={movie.original_title}>
         <img
-          src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+          src={movie?.backdrop_path ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`:
+          `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaRO2EQH7ghFziyXImIAd18XzoTR2TdoyExLSBo3wOtAKlgkk7f1gGOr591I6s9zxTbEs&amp;usqp=CAU` }
           alt={movie.title}
           srcSet={`https://image.tmdb.org/t/p/w500${movie.backdrop_path} 2x`}
           className={detailsStyle.picture}

@@ -8,6 +8,7 @@ import Layout from './components/Layout/Layout.jsx';
 const Home = lazy(() => import('./components/pages/Home/Home'));
 const Movies = lazy(() => import('./components/pages/Movies/Movies'));
 
+
 export const App = () => {
 
   const text = {
@@ -18,9 +19,9 @@ export const App = () => {
       <Suspense fallback={<div>Loading...</div>}>
       <Routes>
           <Route path="/" element={<Layout/>} />
-          <Route index element={<Home />} />
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/:movieId" element={<MovieDetails />}>
+          <Route path="/"  element={<Home />} />
+          <Route path="movies" element={<Movies />} />
+          <Route path="movies/:movieId" element={<MovieDetails />}>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
             <Route path="*" element={<LoaderPage loading={text} />} />
