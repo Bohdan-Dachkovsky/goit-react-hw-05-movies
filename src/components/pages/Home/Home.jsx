@@ -20,6 +20,8 @@ const Home = () => {
   }, []);
 
 
-  return <>{error && movies.length> 0 && <MovieList movieArr = {movies}/>}</>;
+    return <>{error && <p>{error.message}</p>}
+  { movies.length > 0 && <MovieList movieArr = {movies}/>}
+  </>;
 };
 export default Home;
