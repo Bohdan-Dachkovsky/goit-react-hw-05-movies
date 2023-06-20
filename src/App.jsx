@@ -18,14 +18,15 @@ export const App = () => {
   return (
       <Suspense fallback={<div>Loading...</div>}>
       <Routes>
-          <Route path="/" element={<Layout/>} />
-          <Route path="/"  element={<Home />} />
+          <Route path="/" element={<Layout/>}>
+          <Route index element={<Home />} />
           <Route path="movies" element={<Movies />} />
           <Route path="movies/:movieId" element={<MovieDetails />}>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
-            <Route path="*" element={<LoaderPage loading={text} />} />
           </Route>
+          </Route>
+          <Route path="*" element={<LoaderPage loading={text} />} />
         </Routes>
       </Suspense>
   );
